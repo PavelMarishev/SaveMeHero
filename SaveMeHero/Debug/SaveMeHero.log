@@ -1,3 +1,2 @@
-﻿  main.cpp
-  SaveMeHero.vcxproj -> E:\VSprojects\SaveMeHero\Debug\SaveMeHero.exe
-  SaveMeHero.vcxproj -> E:\VSprojects\SaveMeHero\Debug\SaveMeHero.pdb (Partial PDB)
+﻿  SceneManager.cpp
+e:\vsprojects\savemehero\savemehero\scenemanager.cpp(16): error C2243: 'type cast': conversion from 'testScreen *' to 'cScreen *' exists, but is inaccessible

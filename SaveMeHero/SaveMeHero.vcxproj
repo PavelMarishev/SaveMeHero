@@ -19,7 +19,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="allScreens.h" />
+    <ClInclude Include="cScreen.h" />
+    <ClInclude Include="testScreen.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{66D918F4-2728-4843-9C77-A3257C773444}</ProjectGuid>
