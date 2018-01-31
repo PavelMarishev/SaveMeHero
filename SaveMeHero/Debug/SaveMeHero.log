@@ -1,3 +1,12 @@
 ﻿  SceneManager.cpp
-  SaveMeHero.vcxproj -> E:\VSprojects\SaveMeHero\Debug\SaveMeHero.exe
-  SaveMeHero.vcxproj -> E:\VSprojects\SaveMeHero\Debug\SaveMeHero.pdb (Partial PDB)
+e:\vsprojects\anna\savemehero\savemehero\sfmlorthogonallayer.hpp(132): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+e:\vsprojects\anna\savemehero\savemehero\sfmlorthogonallayer.hpp(169): warning C4244: 'argument': conversion from 'std::size_t' to 'float', possible loss of data
+e:\vsprojects\anna\savemehero\savemehero\sfmlorthogonallayer.hpp(172): warning C4244: 'argument': conversion from 'uint32_t' to 'float', possible loss of data
+e:\vsprojects\anna\savemehero\savemehero\sfmlorthogonallayer.hpp(179): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+e:\vsprojects\anna\savemehero\savemehero\sfmlorthogonallayer.hpp(180): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+e:\vsprojects\anna\savemehero\savemehero\sfmlorthogonallayer.hpp(181): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+e:\vsprojects\anna\savemehero\savemehero\sfmlorthogonallayer.hpp(332): warning C4018: '<': signed/unsigned mismatch
+e:\vsprojects\anna\savemehero\savemehero\hero.h(28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+e:\vsprojects\anna\savemehero\savemehero\testscreen.h(26): warning C4244: 'initializing': conversion from 'sf::Int32' to 'float', possible loss of data
+  SaveMeHero.vcxproj -> E:\VSprojects\Anna\SaveMeHero\Debug\SaveMeHero.exe
+  SaveMeHero.vcxproj -> E:\VSprojects\Anna\SaveMeHero\Debug\SaveMeHero.pdb (Partial PDB)
