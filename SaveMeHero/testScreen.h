@@ -43,9 +43,13 @@ public:
 				
 				
 			}
-			if(moving)moving = h.moveHeroTo(moveto, time);
+			if (moving) {
+				
+				moving = h.moveHeroTo(moveto, time); 
+			}
 			
 			App.draw(h);
+			
 			App.display();
 		}
 

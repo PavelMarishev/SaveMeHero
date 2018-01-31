@@ -9,7 +9,7 @@ class Hero : public Drawable {
 	private:
 		Texture heroTexture;
 		Sprite heroSprite;
-		int frame;
+		float frame = 0;
 		virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const
 		{
 			Sprite todraw = heroSprite;
@@ -18,10 +18,9 @@ class Hero : public Drawable {
 		}
 	public:
 		Hero() {
-			frame = 0;
 			heroTexture.loadFromFile("assets/images/hero.png");
 			heroSprite.setTexture(heroTexture);
-			heroSprite.setTextureRect(IntRect(0, 0, 30, 60));
+			heroSprite.setTextureRect(IntRect(0, 0, 30, 65));
 			heroSprite.setPosition(400, 400);
 		
 		};
@@ -33,9 +32,11 @@ class Hero : public Drawable {
 			int y = where.y;
 
 			bool moving = false;
-			int max = y;
-			if (x > y)max = x;
-			
+		
+			frame +=10*time;
+	
+			if (frame > 5)frame = 1;
+			heroSprite.setTextureRect(IntRect(33 * (int)frame, 0, 25, 60));
 		
 				if ((heroSprite.getPosition().x) != x) {
 					if (heroSprite.getPosition().x < x) {
@@ -63,6 +64,7 @@ class Hero : public Drawable {
 				return moving;
 
 		}
-		
+
+	
 
 };
