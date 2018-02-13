@@ -1,12 +1,32 @@
 ﻿  SceneManager.cpp
-e:\vsprojects\anna\savemehero\savemehero\sfmlorthogonallayer.hpp(132): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-e:\vsprojects\anna\savemehero\savemehero\sfmlorthogonallayer.hpp(169): warning C4244: 'argument': conversion from 'std::size_t' to 'float', possible loss of data
-e:\vsprojects\anna\savemehero\savemehero\sfmlorthogonallayer.hpp(172): warning C4244: 'argument': conversion from 'uint32_t' to 'float', possible loss of data
-e:\vsprojects\anna\savemehero\savemehero\sfmlorthogonallayer.hpp(179): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-e:\vsprojects\anna\savemehero\savemehero\sfmlorthogonallayer.hpp(180): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-e:\vsprojects\anna\savemehero\savemehero\sfmlorthogonallayer.hpp(181): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-e:\vsprojects\anna\savemehero\savemehero\sfmlorthogonallayer.hpp(332): warning C4018: '<': signed/unsigned mismatch
-e:\vsprojects\anna\savemehero\savemehero\hero.h(28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-e:\vsprojects\anna\savemehero\savemehero\testscreen.h(26): warning C4244: 'initializing': conversion from 'sf::Int32' to 'float', possible loss of data
-  SaveMeHero.vcxproj -> E:\VSprojects\Anna\SaveMeHero\Debug\SaveMeHero.exe
-  SaveMeHero.vcxproj -> E:\VSprojects\Anna\SaveMeHero\Debug\SaveMeHero.pdb (Partial PDB)
+c:\users\lenovo\desktop\savemehero-8fa9cd2988438e56f8700663e6f7692bb3bcf017\savemehero\sfmlorthogonallayer.hpp(132): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\lenovo\desktop\savemehero-8fa9cd2988438e56f8700663e6f7692bb3bcf017\savemehero\sfmlorthogonallayer.hpp(169): warning C4244: аргумент: преобразование "::size_t" в "float", возможна потеря данных
+c:\users\lenovo\desktop\savemehero-8fa9cd2988438e56f8700663e6f7692bb3bcf017\savemehero\sfmlorthogonallayer.hpp(172): warning C4244: аргумент: преобразование "uint32_t" в "float", возможна потеря данных
+c:\users\lenovo\desktop\savemehero-8fa9cd2988438e56f8700663e6f7692bb3bcf017\savemehero\sfmlorthogonallayer.hpp(179): warning C4244: аргумент: преобразование "unsigned int" в "float", возможна потеря данных
+c:\users\lenovo\desktop\savemehero-8fa9cd2988438e56f8700663e6f7692bb3bcf017\savemehero\sfmlorthogonallayer.hpp(180): warning C4244: аргумент: преобразование "unsigned int" в "float", возможна потеря данных
+c:\users\lenovo\desktop\savemehero-8fa9cd2988438e56f8700663e6f7692bb3bcf017\savemehero\sfmlorthogonallayer.hpp(181): warning C4244: аргумент: преобразование "unsigned int" в "float", возможна потеря данных
+c:\users\lenovo\desktop\savemehero-8fa9cd2988438e56f8700663e6f7692bb3bcf017\savemehero\sfmlorthogonallayer.hpp(332): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\lenovo\desktop\savemehero-8fa9cd2988438e56f8700663e6f7692bb3bcf017\savemehero\hero.h(28): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\lenovo\desktop\savemehero-8fa9cd2988438e56f8700663e6f7692bb3bcf017\savemehero\dial.h(13): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\lenovo\desktop\savemehero-8fa9cd2988438e56f8700663e6f7692bb3bcf017\savemehero\dial.h(18): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\lenovo\desktop\savemehero-8fa9cd2988438e56f8700663e6f7692bb3bcf017\savemehero\dial.h(31): warning C4018: >: несоответствие типов со знаком и без знака
+c:\users\lenovo\desktop\savemehero-8fa9cd2988438e56f8700663e6f7692bb3bcf017\savemehero\dial.h(35): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\lenovo\desktop\savemehero-8fa9cd2988438e56f8700663e6f7692bb3bcf017\savemehero\dial.h(37): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\lenovo\desktop\savemehero-8fa9cd2988438e56f8700663e6f7692bb3bcf017\savemehero\dial.h(55): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\lenovo\desktop\savemehero-8fa9cd2988438e56f8700663e6f7692bb3bcf017\savemehero\dial.h(103): warning C4244: аргумент: преобразование "unsigned int" в "float", возможна потеря данных
+c:\users\lenovo\desktop\savemehero-8fa9cd2988438e56f8700663e6f7692bb3bcf017\savemehero\dial.h(103): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+c:\users\lenovo\desktop\savemehero-8fa9cd2988438e56f8700663e6f7692bb3bcf017\savemehero\dial.h(115): warning C4244: аргумент: преобразование "unsigned int" в "float", возможна потеря данных
+c:\users\lenovo\desktop\savemehero-8fa9cd2988438e56f8700663e6f7692bb3bcf017\savemehero\testscreen.h(29): warning C4244: инициализация: преобразование "sf::Int32" в "float", возможна потеря данных
+c:\users\lenovo\desktop\savemehero-8fa9cd2988438e56f8700663e6f7692bb3bcf017\savemehero\player.h(24): warning C4305: =: усечение из "double" в "float"
+c:\users\lenovo\desktop\savemehero-8fa9cd2988438e56f8700663e6f7692bb3bcf017\savemehero\player.h(36): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
+c:\users\lenovo\desktop\savemehero-8fa9cd2988438e56f8700663e6f7692bb3bcf017\savemehero\ss2.h(112): warning C4244: =: преобразование "sf::Int64" в "float", возможна потеря данных
+c:\users\lenovo\desktop\savemehero-8fa9cd2988438e56f8700663e6f7692bb3bcf017\savemehero\ss2.h(120): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\lenovo\desktop\savemehero-8fa9cd2988438e56f8700663e6f7692bb3bcf017\savemehero\ss2.h(134): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\lenovo\desktop\savemehero-8fa9cd2988438e56f8700663e6f7692bb3bcf017\savemehero\ss2.h(147): warning C4551: в вызове функции отсутствует список аргументов
+c:\users\lenovo\desktop\savemehero-8fa9cd2988438e56f8700663e6f7692bb3bcf017\savemehero\ss2.h(154): warning C4305: =: усечение из "double" в "float"
+c:\users\lenovo\desktop\savemehero-8fa9cd2988438e56f8700663e6f7692bb3bcf017\savemehero\ss2.h(158): warning C4305: =: усечение из "double" в "float"
+c:\users\lenovo\desktop\savemehero-8fa9cd2988438e56f8700663e6f7692bb3bcf017\savemehero\ss2.h(162): warning C4305: =: усечение из "double" в "float"
+c:\users\lenovo\desktop\savemehero-8fa9cd2988438e56f8700663e6f7692bb3bcf017\savemehero\ss2.h(166): warning C4305: =: усечение из "double" в "float"
+c:\users\lenovo\desktop\savemehero-8fa9cd2988438e56f8700663e6f7692bb3bcf017\savemehero\ss2.h(189): warning C4018: <: несоответствие типов со знаком и без знака
+     ╤ючфрхЄё  сшсышюЄхър C:\Users\Lenovo\Desktop\SaveMeHero-8fa9cd2988438e56f8700663e6f7692bb3bcf017\Debug\SaveMeHero.lib ш юс·хъЄ C:\Users\Lenovo\Desktop\SaveMeHero-8fa9cd2988438e56f8700663e6f7692bb3bcf017\Debug\SaveMeHero.exp
+  SaveMeHero.vcxproj -> C:\Users\Lenovo\Desktop\SaveMeHero-8fa9cd2988438e56f8700663e6f7692bb3bcf017\Debug\SaveMeHero.exe
