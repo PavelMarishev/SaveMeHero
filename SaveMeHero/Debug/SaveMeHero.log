@@ -1,12 +1,2 @@
-﻿  SceneManager.cpp
-c:\users\рабочий\desktop\project\savemehero\savemehero\sfmlorthogonallayer.hpp(132): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-c:\users\рабочий\desktop\project\savemehero\savemehero\sfmlorthogonallayer.hpp(169): warning C4244: аргумент: преобразование "::size_t" в "float", возможна потеря данных
-c:\users\рабочий\desktop\project\savemehero\savemehero\sfmlorthogonallayer.hpp(172): warning C4244: аргумент: преобразование "uint32_t" в "float", возможна потеря данных
-c:\users\рабочий\desktop\project\savemehero\savemehero\sfmlorthogonallayer.hpp(179): warning C4244: аргумент: преобразование "unsigned int" в "float", возможна потеря данных
-c:\users\рабочий\desktop\project\savemehero\savemehero\sfmlorthogonallayer.hpp(180): warning C4244: аргумент: преобразование "unsigned int" в "float", возможна потеря данных
-c:\users\рабочий\desktop\project\savemehero\savemehero\sfmlorthogonallayer.hpp(181): warning C4244: аргумент: преобразование "unsigned int" в "float", возможна потеря данных
-c:\users\рабочий\desktop\project\savemehero\savemehero\sfmlorthogonallayer.hpp(332): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\рабочий\desktop\project\savemehero\savemehero\hero.h(28): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-c:\users\рабочий\desktop\project\savemehero\savemehero\testscreen.h(26): warning C4244: инициализация: преобразование "sf::Int32" в "float", возможна потеря данных
-     Создается библиотека C:\Users\Рабочий\Desktop\project\SaveMeHero\Debug\SaveMeHero.lib и объект C:\Users\Рабочий\Desktop\project\SaveMeHero\Debug\SaveMeHero.exp
-  SaveMeHero.vcxproj -> C:\Users\Рабочий\Desktop\project\SaveMeHero\Debug\SaveMeHero.exe
+﻿  SaveMeHero.vcxproj -> E:\VSprojects\testee\Debug\SaveMeHero.exe
+  SaveMeHero.vcxproj -> E:\VSprojects\testee\Debug\SaveMeHero.pdb (Partial PDB)

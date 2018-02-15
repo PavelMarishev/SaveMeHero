@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.1" orientation="orthogonal" renderorder="right-down" width="40" height="22" tilewidth="32" tileheight="32" infinite="0" nextobjectid="54">
+ <tileset firstgid="1" name="newinterface" tilewidth="32" tileheight="32" tilecount="880" columns="40">
+  <image source="images/newinterface.png" width="1280" height="720"/>
+ </tileset>
+ <objectgroup name="background">
+  <object id="33" name="background" x="0" y="0" width="1280" height="706"/>
+  <object id="42" name="armor" x="290" y="328" width="56" height="26"/>
+  <object id="45" name="cure" x="376" y="327" width="56" height="26"/>
+  <object id="46" name="dmg" x="464" y="327" width="56" height="26"/>
+  <object id="47" name="def" x="810" y="325" width="56" height="26"/>
+  <object id="48" name="health" x="894" y="325" width="56" height="26"/>
+  <object id="49" name="dodge" x="976" y="323" width="56" height="26"/>
+  <object id="50" name="money" x="18" y="94" width="66" height="30"/>
+  <object id="53" name="gems" x="133" y="97" width="66" height="30"/>
+ </objectgroup>
+ <layer name="char" width="40" height="22">
+  <data encoding="base64" compression="zlib">
+   eJwV1oMSGAYARMHYtm3btm3btm3bttnGtm3bttPtzO033AsYIECAQAQmCEEJRnBCEJJQhCYMYQlHeCIQkUhEJgpRiUZ0YhCTWMQmDnGJR3wSkJBEJCYJSUlGclKQklSkJg1pSUd6MpCRTGQmC1nJRnZykJNc5CYPeclHfgpQkEIUpghFKUZxSlCSUpSmDGUpR3kqUJFKVKYKValGdWpQk1rUpg51qUd9GtCQRjSmCU1pRnNa0JJWtKYNbWlHezrQkU50pgtd6UZ3etCTXvSmD33pR38GMJBBDGYIQxnGcEYwklGMZgxjGcd4JjCRSUxmClOZxnRmMJNZzGYOc5nHfBawkEUsZglLWcZyVrCSVaxmDWtZx3o2sJFNbOYf/mULW9nGdnawk13sZg972cd+DnCQQxzmCEc5xnFOcJJTnOYMZznHeS5wkUtc5gpXucZ1bnCTW9zmDne5x30e8JBHPOYJT3nGc17wkle85g1vecd7PvCRT3zmC1/5xnd+8JNf/OYPfwkQ0AhEYIIQlGAEJwQhCUVowhCWcIQnAhGJRGSiEJVoRCcGMYlFbOIQl3jEJwEJSURikpCUZCQnBSlJRWrSkJZ0pCcDGclEZrKQlWxkJwc5yUVu8pCXfOSnAAUpRGGKUJRiFKcEJSlFacpQlnKUpwIVqURlqlCValSnBjWpRW3qUJd61KcBDWlEY5rQlGY0pwUtaUVr2tCWdrSnAx3pRGe60JVudKcHPelFb/rQl370ZwADGcRghjCUYQxnBCMZxWjGMJZxjGcCE5nEZKYwlWlMZwYzmcVs5jCXecxnAQtZxGKWsJRlLGcFK1nFatawlnWsZwMb2cRm/uFftrCVbWxnBzvZxW72sJd97OcABznEYY5wlGMc5wQnOcVpznCWc5znAhe5xGWucJVrXOcGN7nFbe5wl3vc5wEPecRjnvCUZzznBS95xWve8JZ3vOcDH/nEZ77wlW985wc/+cVv/vCX/48/IIEITBCCEozghCAkoQhNGMISjvBEICKRiEwUohKN6MQgJrGITRziEo/4JCAhiUhMEpKSjOSkICWpSE0a0pKO9GQgI5nITBayko3s5CAnuchNHvKSj/wUoCCFKEwRilKM4pSgJKUoTRnKUo7yVKAilahMFapSjerUoCa1qE0d6lKP+jSgIY1oTBOa0ozmtKAlrWhNG9rSjvZ0oCOd6EwXutKN7vSgJ73oTR/60o/+DGAggxjMEIYyjOGMYCSjGM0YxjKO8UxgIpOYzBSmMo3pzGAms5jNHOYyj/ksYCGLWMwSlrKM5axgJatYzRrWso71bGAjm9jMP/zLFrayje3sYCe72M0e9rKP/RzgIIc4zBGOcozjnOAkpzjNGc5yjvNc4CKXuMwVrnKN69zgJre4zR3uco/7POAhj3jME57yjOe84CWveM0b3vKO93zgI5/4zBe+8o3v/OAnv/jNH/7yf/QHJBCBCUJQghGcEIQkFKEJQ1jCEZ4IRCQSkYlCVKIRnRjEJBaxiUNc4hGfBCQkEYlJQlKSkZwUpCQVqUlDWtKRngxkJBOZyUJWspGdHOQkF7nJQ17ykZ8CFKQQhSlCUYpRnBKUpBSlKUNZylGeClSkEpWpQlWqUZ0a1KQWtalDXepRnwY0pBGNaUJTmtGcFrSkFa1pQ1va0Z4O/AcvrJub
+  </data>
+ </layer>
+ <objectgroup name="icons">
+  <object id="35" name="hp" x="72" y="612" width="122" height="40"/>
+  <object id="37" name="pwr" x="1109" y="636" width="122" height="40"/>
+  <object id="38" name="str" x="300.433" y="505.821" width="41.9759" height="40" rotation="-1.70256"/>
+  <object id="39" name="end" x="431.012" y="504" width="41.9759" height="40" rotation="-1.70256"/>
+  <object id="40" name="int" x="835.012" y="516" width="41.9759" height="40" rotation="-1.70256"/>
+  <object id="41" name="dex" x="973.012" y="516" width="41.9759" height="40" rotation="-1.70256"/>
+ </objectgroup>
+</map>

@@ -23,9 +23,6 @@
     <ClInclude Include="cScreen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="testScreen.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="allScreens.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -36,6 +33,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="hero.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="charInterface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="interfaceScreen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="objectsLayer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SS2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
