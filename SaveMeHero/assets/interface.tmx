@@ -1,18 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.1" orientation="orthogonal" renderorder="right-down" width="40" height="22" tilewidth="32" tileheight="32" infinite="0" nextobjectid="54">
+<map version="1.0" tiledversion="1.1.1" orientation="orthogonal" renderorder="right-down" width="40" height="22" tilewidth="32" tileheight="32" infinite="0" nextobjectid="57">
  <tileset firstgid="1" name="newinterface" tilewidth="32" tileheight="32" tilecount="880" columns="40">
   <image source="images/newinterface.png" width="1280" height="720"/>
  </tileset>
  <objectgroup name="background">
   <object id="33" name="background" x="0" y="0" width="1280" height="706"/>
-  <object id="42" name="armor" x="290" y="328" width="56" height="26"/>
-  <object id="45" name="cure" x="376" y="327" width="56" height="26"/>
-  <object id="46" name="dmg" x="464" y="327" width="56" height="26"/>
-  <object id="47" name="def" x="810" y="325" width="56" height="26"/>
-  <object id="48" name="health" x="894" y="325" width="56" height="26"/>
-  <object id="49" name="dodge" x="976" y="323" width="56" height="26"/>
-  <object id="50" name="money" x="18" y="94" width="66" height="30"/>
-  <object id="53" name="gems" x="133" y="97" width="66" height="30"/>
  </objectgroup>
  <layer name="char" width="40" height="22">
   <data encoding="base64" compression="zlib">
@@ -21,10 +13,21 @@
  </layer>
  <objectgroup name="icons">
   <object id="35" name="hp" x="72" y="612" width="122" height="40"/>
-  <object id="37" name="pwr" x="1109" y="636" width="122" height="40"/>
-  <object id="38" name="str" x="300.433" y="505.821" width="41.9759" height="40" rotation="-1.70256"/>
-  <object id="39" name="end" x="431.012" y="504" width="41.9759" height="40" rotation="-1.70256"/>
-  <object id="40" name="int" x="835.012" y="516" width="41.9759" height="40" rotation="-1.70256"/>
-  <object id="41" name="dex" x="973.012" y="516" width="41.9759" height="40" rotation="-1.70256"/>
+  <object id="37" name="pwr" x="1120" y="612" width="122" height="40"/>
+  <object id="38" name="str" x="313" y="485" width="31.4328" height="35.6848" rotation="-1.70256"/>
+  <object id="39" name="end" x="448.345" y="485" width="31.43" height="35.68" rotation="-1.70256"/>
+  <object id="40" name="int" x="850" y="485" width="31.43" height="35.68" rotation="-1.70256"/>
+  <object id="41" name="dex" x="985.012" y="485" width="31.43" height="35.68" rotation="-1.70256"/>
+  <object id="54" name="nickname" x="574.667" y="574.667" width="168" height="53.3333"/>
+  <object id="55" name="lvl" x="346.667" y="628" width="28" height="13.3333"/>
+  <object id="56" name="lvlto" x="972" y="628" width="20" height="20"/>
+  <object id="49" name="dodge" x="1003" y="312" width="56" height="26"/>
+  <object id="48" name="health" x="907" y="312" width="56" height="26"/>
+  <object id="47" name="def" x="832" y="312" width="56" height="26"/>
+  <object id="46" name="dmg" x="480" y="312" width="56" height="26"/>
+  <object id="45" name="cure" x="400" y="312" width="56" height="26"/>
+  <object id="42" name="armor" x="315" y="312" width="56" height="26"/>
+  <object id="53" name="gems" x="158" y="76" width="66" height="30"/>
+  <object id="50" name="money" x="30" y="76" width="66" height="30"/>
  </objectgroup>
 </map>

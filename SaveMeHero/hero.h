@@ -31,10 +31,11 @@ class Hero : public Drawable {
 		int lvl = 1;
 		int armor = 1;
 		int cure = 1;
-		int damage = 20;
+		int damage = 2;
 		int defence = 1;
 		int dodge = 1;
 		int exp = 0;
+		String name = "Dark Lord";
 		//
 		Hero() {
 			texture.loadFromFile("assets/images/hero.png");

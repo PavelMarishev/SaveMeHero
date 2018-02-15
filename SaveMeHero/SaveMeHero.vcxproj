@@ -29,7 +29,6 @@
     <ClInclude Include="interfaceScreen.h" />
     <ClInclude Include="objectsLayer.h" />
     <ClInclude Include="SFMLOrthogonalLayer.hpp" />
-    <ClInclude Include="SS2.h" />
     <ClInclude Include="TileManager.h" />
   </ItemGroup>
   <ItemGroup>
