@@ -1,0 +1,87 @@
+{
+"encoding" : "UTF-8",
+"plug-ins" : [
+"python",
+"c++",
+"ruby"
+],
+"indent" : { "length" : 3, "use_space": true }
+}
+
+
+
+
+
+{
+	"test": "test",
+	"context1" : [
+		"text0":
+		{
+			"en":"test",
+			"ru":"тест"
+		},
+		"text1":
+		{
+			"en":"I am hungry",
+			"ru":"хочу есть"
+		},
+		"text2":
+		{
+			"en":"Save me, God",
+			"ru":"Ѕоже спаси"
+		},
+		"text3":
+		{
+			"en":"I want to sleep",
+			"ru":"спать хочу"
+		},
+		"text4":
+		{
+			"en":"I feel that someone is following me",
+			"ru":"кажетс€, за мной след€т"
+		},
+		"text5":
+		{
+			"en":"life is shit",
+			"ru":"жизнь is shit"
+		},
+		"text6":
+		{
+			"en":"armor looks like pajamas",
+			"ru":"доспех выгл€дит как пижама"
+		},
+		"text7":
+		{
+			"en":"I will become a hero!",
+			"ru":"€ стану героем!"
+		},
+		"text8":
+		{
+			"en":"such beautiful trees",
+			"ru":"какие красивые деревь€"
+		},
+		"text9":
+		{
+			"en":"c ++ is the best",
+			"ru":"с++ топ"
+		},
+		"text10":
+		{
+			"en":"where to get money",
+			"ru":"где вз€ть денег?"
+		},
+		"text11":
+		{
+			"en":"Who am I?",
+			"ru":" то €?"
+		}
+	],
+	"context2" : 
+	[
+		"text0":
+		{
+			"en":"test",
+			"ru":"тест"
+		}
+	]
+}

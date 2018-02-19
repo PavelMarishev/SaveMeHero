@@ -44,6 +44,9 @@
     <ClInclude Include="dial.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="JsonDB.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

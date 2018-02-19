@@ -26,6 +26,7 @@
     <ClInclude Include="cScreen.h" />
     <ClInclude Include="dial.h" />
     <ClInclude Include="hero.h" />
+    <ClInclude Include="JsonDB.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="SFMLOrthogonalLayer.hpp" />
     <ClInclude Include="testScreen.h" />
@@ -95,7 +96,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\SFML-2.4.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\packages\jsoncpp.0.6.0.1\build\native\include;..\SFML-2.4.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>SFML_DYNAMIC;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>

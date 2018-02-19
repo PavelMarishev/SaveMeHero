@@ -2,12 +2,15 @@
 
 #include <string>
 #include <iostream>
-
+#include "JsonDB.h""
 using namespace sf;
 using namespace std;
 class Dialog {
 	Font font;
 	Text text;
+	string* collection;
+	int mode = 0;
+	string currentIdea;
 	string cutSpace(string s) {
 		int i = 0;
 		while (i < s.length())
@@ -85,40 +88,74 @@ class Dialog {
 		return buf;
 	}
 public:
-	Dialog(int size = 15, Color color = Color::Black, char* default = "")
+	Dialog(int size = 15, Color color = Color::Black, char* default = "",int type = 0)
 	{
 		font.loadFromFile("CyrilicOld.ttf");
 		text.setString(default);
 		text.setFont(font);
 		text.setCharacterSize(size);
 		text.setFillColor(color);
+		FileWork FW;
+		collection = FW.getJSON();
+		mode = type;
+		currentIdea = collection[0];
 	}
-	void showSmallWindow(string speach, Vector2f obj, RenderWindow &window, int limitH = 5, int limitW = 10)
+	void thinkOfAnother() 
 	{
-		Texture dialTx;
-		dialTx.loadFromFile("dialog.png");
-		Sprite s(dialTx);
-
-		s.setPosition(Vector2f(obj.x + 15, obj.y - 15));
+		string temp = currentIdea;
+		do {
+			currentIdea = collection[rand() % (collection->size())];
+		} while (temp == currentIdea);
+	}
+	//showSmallWindow выводит маленькое диалоговое окно возле героя, параметры: текст, положение героя, окно, высота, ширина абзаца
+	void showSmallWindow(string speach, Vector2f obj, RenderWindow &window, int forMode = 0, int limitH = 5, int limitW = 10)
+	{
+		switch (forMode)
+		{
+		case 0:
+		{
+			text.setString(format(speach, limitW, limitW*limitH));
+			break;
+		}
+		case 1:
+		{
+			text.setString(format(currentIdea, limitW, limitW*limitH));
+			break;
+		}
+		}
+		
+		text.setPosition(Vector2f(obj.x + 30, obj.y - text.getCharacterSize()*limitH));
+		
 		RectangleShape rect(Vector2f(limitW*(text.getCharacterSize() / 1.5), text.getCharacterSize()*limitH + 3));
 		rect.setPosition(Vector2f(obj.x + 25, obj.y - text.getCharacterSize()*limitH));
 		rect.setFillColor(Color(255, 255, 255, 169));
-		text.setString(format(speach, limitW, limitW*limitH));
-		text.setPosition(Vector2f(obj.x + 30, obj.y - text.getCharacterSize()*limitH));
-
-		//window.draw(s);
+		/*
+		Texture dialTx;
+		dialTx.loadFromFile("dialog.png");
+		Sprite s(dialTx);
+		s.setPosition(Vector2f(obj.x + 15, obj.y - 15));
+		window.draw(s);//хвост окна диалога   
+		*/
 		window.draw(rect);
 		window.draw(text);
 	}
-	void showBigWindow(string speach, RenderWindow &window, int k = 5)
+	void showBigWindow(string speach, RenderWindow &window,int h = 450, int k = 5)//большое окно внизу
 	{
 		RectangleShape rect(Vector2f(window.getSize().x, window.getSize().y / k));
 		text.setString(speach);
 
-		text.setPosition(Vector2f(0, 450));
-		rect.setPosition(Vector2f(0,  450));
-		rect.setFillColor(Color(255, 255, 255, 169));
+		text.setPosition(Vector2f(0, h));//2 параметр задает высоту текста(сверху)
+		rect.setPosition(Vector2f(0, h));//2 параметр задает высоту окна(сверху)
+		rect.setFillColor(Color(255, 255, 255, 169));//4 параметр - прозрачность
 		window.draw(rect);
 		window.draw(text);
+	}
+	int getMode() 
+	{
+		return mode;
+	}
+	void setMode(int val) 
+	{
+		mode = val;
 	}
 };
