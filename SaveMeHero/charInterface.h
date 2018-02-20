@@ -1,13 +1,14 @@
 #pragma once
 #include <SFML\Graphics.hpp>
 #include "objectsLayer.h"
-
+#include "SFMLOrthogonalLayer.hpp"
 using namespace sf;
 using namespace tmx;
 using namespace std;
 
 class CharInterface :public Drawable {
     private:
+		sf::FloatRect recto;
 		//Texture iconsTexture;
 		sf::Text hpBarText;
 		sf::Text pwrBarText;
@@ -26,21 +27,19 @@ class CharInterface :public Drawable {
 		sf::Text moneyText;
 		sf::Text gemText;
 		sf::Text nameText;
-
+		Map map;
 		Hero h;
 		Font font;
 		Texture backTexture;
-		Texture frontTexture;
 		Sprite backSprite;
-		Sprite frontSprite;
-		Map map;
+		MapLayer ml;
 		Objects back;
 		Objects icons;
 
 		virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const
 		{
 			target.draw(backSprite);
-			target.draw(frontSprite);
+			target.draw(ml);
 			target.draw(hpBarText);
 			target.draw(pwrBarText);
 			target.draw(armorText);
@@ -58,22 +57,21 @@ class CharInterface :public Drawable {
 			target.draw(moneyText);
 			target.draw(gemText);
 			target.draw(nameText);
+		
 		}
 
      public:
 
 		 CharInterface() {
 			
+			 
 			 map.load("assets/interface.tmx");
 			 back.setObjects(map, 0);
 			 icons.setObjects(map, 2);
-
+			 ml.setMap(map, 1);
 			 backTexture.loadFromFile("assets/images/back.png");
-			 frontTexture.loadFromFile("assets/images/newinterface2.png");
 
 			 backSprite.setTexture(backTexture);
-			 frontSprite.setTexture(frontTexture);
-		
 			 font.loadFromFile("assets/himalaya.ttf");
 			 hpBarText.setFont(font);
 			 pwrBarText.setFont(font);
@@ -142,26 +140,25 @@ class CharInterface :public Drawable {
 
 
 
-			 hpBarText.move(vectorConvert(icons.getObject("hp").getPosition()));
-			 pwrBarText.move(vectorConvert(icons.getObject("pwr").getPosition()));
-			 armorText.move(vectorConvert(icons.getObject("armor").getPosition()));
-			 cureText.move(vectorConvert(icons.getObject("cure").getPosition()));
-			 damageText.move(vectorConvert(icons.getObject("dmg").getPosition()));
-			 defenceText.move(vectorConvert(icons.getObject("def").getPosition()));
-			 healthText.move(vectorConvert(icons.getObject("health").getPosition()));
-			 dodgeText.move(vectorConvert(icons.getObject("dodge").getPosition()));
-			 strText.move(vectorConvert(icons.getObject("str").getPosition()));
-			 endText.move(vectorConvert(icons.getObject("end").getPosition()));
-			 intelText.move(vectorConvert(icons.getObject("int").getPosition()));
-			 dexText.move(vectorConvert(icons.getObject("dex").getPosition()));
-			 lvlText.move(vectorConvert(icons.getObject("lvl").getPosition()));
-			 lvlToText.move(vectorConvert(icons.getObject("lvlto").getPosition()));
-			 moneyText.move(vectorConvert(icons.getObject("money").getPosition()));
-			 gemText.move(vectorConvert(icons.getObject("gems").getPosition()));
-			 nameText.move(vectorConvert(icons.getObject("nickname").getPosition()));
+			 hpBarText.move(vectorConvert(icons.getObjectByName("hp").getPosition()));
+			 pwrBarText.move(vectorConvert(icons.getObjectByName("pwr").getPosition()));
+			 armorText.move(vectorConvert(icons.getObjectByName("armor").getPosition()));
+			 cureText.move(vectorConvert(icons.getObjectByName("cure").getPosition()));
+			 damageText.move(vectorConvert(icons.getObjectByName("dmg").getPosition()));
+			 defenceText.move(vectorConvert(icons.getObjectByName("def").getPosition()));
+			 healthText.move(vectorConvert(icons.getObjectByName("health").getPosition()));
+			 dodgeText.move(vectorConvert(icons.getObjectByName("dodge").getPosition()));
+			 strText.move(vectorConvert(icons.getObjectByName("str").getPosition()));
+			 endText.move(vectorConvert(icons.getObjectByName("end").getPosition()));
+			 intelText.move(vectorConvert(icons.getObjectByName("int").getPosition()));
+			 dexText.move(vectorConvert(icons.getObjectByName("dex").getPosition()));
+			 lvlText.move(vectorConvert(icons.getObjectByName("lvl").getPosition()));
+			 lvlToText.move(vectorConvert(icons.getObjectByName("lvlto").getPosition()));
+			 moneyText.move(vectorConvert(icons.getObjectByName("money").getPosition()));
+			 gemText.move(vectorConvert(icons.getObjectByName("gems").getPosition()));
+			 nameText.move(vectorConvert(icons.getObjectByName("nickname").getPosition()));
 
-			 backSprite.setPosition(vectorConvert(back.getObject("background").getPosition()));
-			 frontSprite.setPosition(vectorConvert(back.getObject("background").getPosition()));
+			 backSprite.setPosition(vectorConvert(back.getObjectByName("background").getPosition()));
 			
 			 
 

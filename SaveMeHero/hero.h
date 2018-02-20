@@ -9,6 +9,7 @@ class Hero : public Drawable {
 	private:
 		Texture texture;
 		Sprite sprite;
+		sf::FloatRect rect;
 		float frame = 0;
 		virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const
 		{
@@ -42,9 +43,14 @@ class Hero : public Drawable {
 			sprite.setTexture(texture);
 			sprite.setTextureRect(sf::IntRect(0, 0, 30, 65));
 			sprite.setPosition(400, 400);
+			rect = sprite.getGlobalBounds();
 		};
+		sf::FloatRect getRect() {
+			return rect;
+		}
 		void setHeroPos(int x, int y) {
 			sprite.setPosition(x, y);
+			rect = sprite.getGlobalBounds();
 		}
 		bool moveHeroTo(sf::Vector2i where, float time) {
 			int x = where.x;
@@ -79,7 +85,7 @@ class Hero : public Drawable {
 						moving = true;
 					}
 				}
-			
+				rect = sprite.getGlobalBounds();
 				return moving;
 
 		}

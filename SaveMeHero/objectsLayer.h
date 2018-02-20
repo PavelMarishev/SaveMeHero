@@ -9,6 +9,7 @@ using namespace std;
 class Objects {
 private:
 	vector<Object,allocator<Object>>objects;
+	vector<sf::FloatRect> objRects;
 
 public:
 	Objects(){}
@@ -19,7 +20,23 @@ public:
 			objects = dynamic_cast<tmx::ObjectGroup*>(layers[idx].get())->getObjects();
 
 		}
+		for (int i = 0; i < objects.size(); i++) {
+			tmx::FloatRect ob = objects[i].getAABB();
+			sf::FloatRect rec(ob.left,ob.top,ob.width,ob.height);
+			objRects.push_back(rec);
+			//cout << "Object rect is "<<ob.left<<"  "<<ob.top << "  " <<ob.width << "  " <<ob.height<<endl;
+		}
 	
+	}
+	vector<sf::FloatRect> getRects() {
+		return objRects;
+	}
+
+	Object getObject(int i) {
+		return objects[i];
+	}
+	int getSize() {
+		return objects.size();
 	}
 	void setObjects(const tmx::Map& map, std::size_t idx) {
 		const auto& layers = map.getLayers();
@@ -32,7 +49,7 @@ public:
 	vector<Object, allocator<Object>> getAllObjects(){
 		return objects;
 	}
-	Object getObject(string name) {
+	Object getObjectByName(string name) {
 
 		for (const auto& object : objects) {
 			if (object.getName() == name) {

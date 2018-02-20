@@ -1,14 +1,16 @@
 ﻿  SceneManager.cpp
-e:\vsprojects\here\savemehero\sfmlorthogonallayer.hpp(132): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-e:\vsprojects\here\savemehero\sfmlorthogonallayer.hpp(169): warning C4244: 'argument': conversion from 'std::size_t' to 'float', possible loss of data
-e:\vsprojects\here\savemehero\sfmlorthogonallayer.hpp(172): warning C4244: 'argument': conversion from 'uint32_t' to 'float', possible loss of data
-e:\vsprojects\here\savemehero\sfmlorthogonallayer.hpp(179): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-e:\vsprojects\here\savemehero\sfmlorthogonallayer.hpp(180): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-e:\vsprojects\here\savemehero\sfmlorthogonallayer.hpp(181): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-e:\vsprojects\here\savemehero\sfmlorthogonallayer.hpp(332): warning C4018: '<': signed/unsigned mismatch
-e:\vsprojects\here\savemehero\hero.h(47): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-e:\vsprojects\here\savemehero\mapscreen.h(31): warning C4244: 'initializing': conversion from 'sf::Int32' to 'float', possible loss of data
-e:\vsprojects\here\savemehero\interfacescreen.h(20): warning C4244: 'initializing': conversion from 'sf::Int32' to 'float', possible loss of data
-e:\vsprojects\here\savemehero\objectslayer.h(42): warning C4715: 'Objects::getObject': not all control paths return a value
-  SaveMeHero.vcxproj -> E:\VSprojects\here\Debug\SaveMeHero.exe
-  SaveMeHero.vcxproj -> E:\VSprojects\here\Debug\SaveMeHero.pdb (Partial PDB)
+e:\vsprojects\lastrepo\savemehero\objectslayer.h(23): warning C4018: '<': signed/unsigned mismatch
+e:\vsprojects\lastrepo\savemehero\sfmlorthogonallayer.hpp(153): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+e:\vsprojects\lastrepo\savemehero\sfmlorthogonallayer.hpp(190): warning C4244: 'argument': conversion from 'std::size_t' to 'float', possible loss of data
+e:\vsprojects\lastrepo\savemehero\sfmlorthogonallayer.hpp(193): warning C4244: 'argument': conversion from 'uint32_t' to 'float', possible loss of data
+e:\vsprojects\lastrepo\savemehero\sfmlorthogonallayer.hpp(200): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+e:\vsprojects\lastrepo\savemehero\sfmlorthogonallayer.hpp(201): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+e:\vsprojects\lastrepo\savemehero\sfmlorthogonallayer.hpp(202): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+e:\vsprojects\lastrepo\savemehero\sfmlorthogonallayer.hpp(353): warning C4018: '<': signed/unsigned mismatch
+e:\vsprojects\lastrepo\savemehero\hero.h(52): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+e:\vsprojects\lastrepo\savemehero\mapscreen.h(15): warning C4018: '<': signed/unsigned mismatch
+e:\vsprojects\lastrepo\savemehero\mapscreen.h(36): warning C4244: 'initializing': conversion from 'sf::Int32' to 'float', possible loss of data
+e:\vsprojects\lastrepo\savemehero\interfacescreen.h(20): warning C4244: 'initializing': conversion from 'sf::Int32' to 'float', possible loss of data
+     Creating library E:\VSprojects\LastRepo\Debug\SaveMeHero.lib and object E:\VSprojects\LastRepo\Debug\SaveMeHero.exp
+  SaveMeHero.vcxproj -> E:\VSprojects\LastRepo\Debug\SaveMeHero.exe
+  SaveMeHero.vcxproj -> E:\VSprojects\LastRepo\Debug\SaveMeHero.pdb (Partial PDB)

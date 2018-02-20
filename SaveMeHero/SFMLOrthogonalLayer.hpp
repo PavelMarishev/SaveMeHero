@@ -67,7 +67,7 @@ class MapLayer final : public sf::Drawable
 
 public:
 
-
+	MapLayer() {}
     MapLayer(const tmx::Map& map, std::size_t idx)
     {
         const auto& layers = map.getLayers();
@@ -91,7 +91,28 @@ public:
             std::cout << "Not a valid othogonal layer, nothing will be drawn." << std::endl;
         }
     }
+	void setMap(const tmx::Map& map, std::size_t idx) {
+		const auto& layers = map.getLayers();
+		if (map.getOrientation() == tmx::Orientation::Orthogonal &&
+			idx < layers.size() && layers[idx]->getType() == tmx::Layer::Type::Tile)
+		{
+			//round the chunk size to the nearest tile
+			const auto tileSize = map.getTileSize();
+			m_chunkSize.x = std::floor(m_chunkSize.x / tileSize.x) * tileSize.x;
+			m_chunkSize.y = std::floor(m_chunkSize.y / tileSize.y) * tileSize.y;
 
+			const auto& layer = *dynamic_cast<const tmx::TileLayer*>(layers[idx].get());
+			createChunks(map, layer);
+
+			auto mapSize = map.getBounds();
+			m_globalBounds.width = mapSize.width;
+			m_globalBounds.height = mapSize.height;
+		}
+		else
+		{
+			std::cout << "Not a valid othogonal layer, nothing will be drawn." << std::endl;
+		}
+	}
     ~MapLayer() = default;
     MapLayer(const MapLayer&) = delete;
     MapLayer& operator = (const MapLayer&) = delete;

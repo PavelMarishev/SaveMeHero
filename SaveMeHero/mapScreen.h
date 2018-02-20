@@ -1,10 +1,7 @@
 #include <iostream>
 #pragma once
 #include "cScreen.h"
-
-
-
-
+#include "objectsLayer.h"
 #include "SFMLOrthogonalLayer.hpp"
 #include "hero.h"
 
@@ -13,6 +10,14 @@ using namespace sf;
 class MapScreen : public cScreen {
 
 public:
+	void checkCollision(Objects colobjs,sf::FloatRect charRect) {
+		vector<sf::FloatRect> rects = colobjs.getRects();
+		for (int i = 0; i < rects.size(); i++) {
+			if(charRect.intersects(rects[i]))cout<<"Collision";
+			
+		}
+	
+	}
 	int MapScreen::Run(sf::RenderWindow &App) {
 		Event Event;
 		bool Running = true;
@@ -24,8 +29,8 @@ public:
 		Clock clock;
 		bool moving = false;
 		sf::Vector2i moveto;
+		Objects allobj(map,2);
 		
-	
 		while (Running)
 		{
 			float time = clock.getElapsedTime().asMilliseconds();
@@ -47,10 +52,11 @@ public:
 				moving = true;
 			}
 			if (moving) {
-				
+			//	cout << "Player rect is" << h.getRect().left << "  " << h.getRect().top << "  " << h.getRect().width << "  " << h.getRect().height << endl;
 				moving = h.moveHeroTo(moveto, time); 
 			}
-			
+			checkCollision(allobj,h.getRect());
+
 			App.draw(h);
 			
 			App.display();
