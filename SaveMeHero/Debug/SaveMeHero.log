@@ -1,5 +1,6 @@
 ﻿  SceneManager.cpp
-e:\vsprojects\lastrepo\savemehero\objectslayer.h(23): warning C4018: '<': signed/unsigned mismatch
+e:\vsprojects\lastrepo\savemehero\objectslayer.h(21): warning C4018: '<': signed/unsigned mismatch
+e:\vsprojects\lastrepo\savemehero\objectslayer.h(46): warning C4018: '<': signed/unsigned mismatch
 e:\vsprojects\lastrepo\savemehero\sfmlorthogonallayer.hpp(153): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 e:\vsprojects\lastrepo\savemehero\sfmlorthogonallayer.hpp(190): warning C4244: 'argument': conversion from 'std::size_t' to 'float', possible loss of data
 e:\vsprojects\lastrepo\savemehero\sfmlorthogonallayer.hpp(193): warning C4244: 'argument': conversion from 'uint32_t' to 'float', possible loss of data
@@ -10,7 +11,7 @@ e:\vsprojects\lastrepo\savemehero\sfmlorthogonallayer.hpp(353): warning C4018: '
 e:\vsprojects\lastrepo\savemehero\hero.h(52): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 e:\vsprojects\lastrepo\savemehero\mapscreen.h(15): warning C4018: '<': signed/unsigned mismatch
 e:\vsprojects\lastrepo\savemehero\mapscreen.h(36): warning C4244: 'initializing': conversion from 'sf::Int32' to 'float', possible loss of data
-e:\vsprojects\lastrepo\savemehero\interfacescreen.h(20): warning C4244: 'initializing': conversion from 'sf::Int32' to 'float', possible loss of data
-     Creating library E:\VSprojects\LastRepo\Debug\SaveMeHero.lib and object E:\VSprojects\LastRepo\Debug\SaveMeHero.exp
+e:\vsprojects\lastrepo\savemehero\charinterface.h(176): warning C4018: '<': signed/unsigned mismatch
+e:\vsprojects\lastrepo\savemehero\interfacescreen.h(22): warning C4244: 'initializing': conversion from 'sf::Int32' to 'float', possible loss of data
   SaveMeHero.vcxproj -> E:\VSprojects\LastRepo\Debug\SaveMeHero.exe
   SaveMeHero.vcxproj -> E:\VSprojects\LastRepo\Debug\SaveMeHero.pdb (Partial PDB)

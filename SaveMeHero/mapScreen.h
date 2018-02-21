@@ -47,10 +47,12 @@ public:
 			App.clear();
 			App.draw(layerZero);
 			App.draw(layerOne);
+
 			if (Mouse::isButtonPressed(Mouse::Button::Left)) {
 				moveto = Mouse::getPosition(App);
 				moving = true;
 			}
+
 			if (moving) {
 			//	cout << "Player rect is" << h.getRect().left << "  " << h.getRect().top << "  " << h.getRect().width << "  " << h.getRect().height << endl;
 				moving = h.moveHeroTo(moveto, time); 

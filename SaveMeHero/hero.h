@@ -86,6 +86,10 @@ class Hero : public Drawable {
 					}
 				}
 				rect = sprite.getGlobalBounds();
+				if (rect.contains(sf::Vector2f(where))) {
+					moving = false;
+					sprite.setTextureRect(sf::IntRect(0, 0, 30, 60));
+				}
 				return moving;
 
 		}

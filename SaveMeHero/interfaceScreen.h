@@ -13,8 +13,10 @@ public:
 		Event Event;
 		bool Running = true;
 	///TODO make class inteface
+		
 		Clock clock;
 		CharInterface ci;
+		string whereIsNow = "stats";
 		while (Running)
 		{
 			float time = clock.getElapsedTime().asMilliseconds();
@@ -27,6 +29,11 @@ public:
 				{
 					return (-1);
 				}
+			}
+		
+			if (Mouse::isButtonPressed(Mouse::Button::Left)) {
+				whereIsNow = ci.whereClicked(sf::Vector2f(Mouse::getPosition(App)));
+				cout << whereIsNow<<endl;
 			}
 			App.clear();
 			App.draw(ci);

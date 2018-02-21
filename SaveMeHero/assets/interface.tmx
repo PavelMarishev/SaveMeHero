@@ -1,33 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.1" orientation="orthogonal" renderorder="right-down" width="40" height="22" tilewidth="32" tileheight="32" infinite="0" nextobjectid="57">
- <tileset firstgid="1" name="newinterface" tilewidth="32" tileheight="32" tilecount="880" columns="40">
-  <image source="images/newinterface.png" width="1280" height="720"/>
+<map version="1.0" tiledversion="1.1.1" orientation="orthogonal" renderorder="right-down" width="40" height="22" tilewidth="32" tileheight="32" infinite="0" nextobjectid="59">
+ <tileset firstgid="1" name="newinterface3" tilewidth="32" tileheight="32" tilecount="760" columns="40">
+  <image source="images/newinterface3.png" width="1280" height="623"/>
  </tileset>
  <objectgroup name="background">
   <object id="33" name="background" x="0" y="0" width="1280" height="706"/>
  </objectgroup>
  <layer name="char" width="40" height="22">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
  <objectgroup name="icons">
-  <object id="35" name="hp" x="72" y="612" width="122" height="40"/>
-  <object id="37" name="pwr" x="1120" y="612" width="122" height="40"/>
-  <object id="38" name="str" x="313" y="485" width="31.4328" height="35.6848" rotation="-1.70256"/>
-  <object id="39" name="end" x="448.345" y="485" width="31.43" height="35.68" rotation="-1.70256"/>
-  <object id="40" name="int" x="850" y="485" width="31.43" height="35.68" rotation="-1.70256"/>
-  <object id="41" name="dex" x="985.012" y="485" width="31.43" height="35.68" rotation="-1.70256"/>
-  <object id="54" name="nickname" x="574.667" y="574.667" width="168" height="53.3333"/>
-  <object id="55" name="lvl" x="346.667" y="628" width="28" height="13.3333"/>
-  <object id="56" name="lvlto" x="972" y="628" width="20" height="20"/>
-  <object id="49" name="dodge" x="1003" y="312" width="56" height="26"/>
-  <object id="48" name="health" x="907" y="312" width="56" height="26"/>
-  <object id="47" name="def" x="832" y="312" width="56" height="26"/>
-  <object id="46" name="dmg" x="480" y="312" width="56" height="26"/>
-  <object id="45" name="cure" x="400" y="312" width="56" height="26"/>
-  <object id="42" name="armor" x="315" y="312" width="56" height="26"/>
-  <object id="53" name="gems" x="158" y="76" width="66" height="30"/>
-  <object id="50" name="money" x="30" y="76" width="66" height="30"/>
+  <object id="35" name="hp" x="72" y="525" width="122" height="40"/>
+  <object id="37" name="pwr" x="1120" y="525" width="122" height="40"/>
+  <object id="38" name="str" x="313" y="413" width="31.4328" height="35.6848" rotation="-1.70256"/>
+  <object id="39" name="end" x="448.345" y="413" width="31.43" height="35.68" rotation="-1.70256"/>
+  <object id="40" name="int" x="850" y="413" width="31.43" height="35.68" rotation="-1.70256"/>
+  <object id="41" name="dex" x="985.012" y="413" width="31.43" height="35.68" rotation="-1.70256"/>
+  <object id="54" name="nickname" x="574.667" y="477.67" width="168" height="53.3333"/>
+  <object id="55" name="lvl" x="346.667" y="541" width="28" height="13.3333"/>
+  <object id="56" name="lvlto" x="972" y="541" width="20" height="20"/>
+  <object id="49" name="dodge" x="1003" y="270" width="56" height="26"/>
+  <object id="48" name="health" x="907" y="270" width="56" height="26"/>
+  <object id="47" name="def" x="832" y="270" width="56" height="26"/>
+  <object id="46" name="dmg" x="480" y="270" width="56" height="26"/>
+  <object id="45" name="cure" x="400" y="270" width="56" height="26"/>
+  <object id="42" name="armor" x="315" y="270" width="56" height="26"/>
+  <object id="53" name="gems" x="158" y="71" width="66" height="30"/>
+  <object id="50" name="money" x="30" y="71" width="66" height="30"/>
+ </objectgroup>
+ <objectgroup name="clickable">
+  <object id="58" name="backpack" x="673" y="321" width="66" height="50"/>
  </objectgroup>
 </map>

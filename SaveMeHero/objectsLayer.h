@@ -18,14 +18,14 @@ public:
 		if (layers[idx]->getType() == tmx::Layer::Type::Object)
 		{
 			objects = dynamic_cast<tmx::ObjectGroup*>(layers[idx].get())->getObjects();
-
+			for (int i = 0; i < objects.size(); i++) {
+				tmx::FloatRect ob = objects[i].getAABB();
+				sf::FloatRect rec(ob.left, ob.top, ob.width, ob.height);
+				objRects.push_back(rec);
+				//	cout << "Object rect is "<<ob.left<<"  "<<ob.top << "  " <<ob.width << "  " <<ob.height<<endl;
+			}
 		}
-		for (int i = 0; i < objects.size(); i++) {
-			tmx::FloatRect ob = objects[i].getAABB();
-			sf::FloatRect rec(ob.left,ob.top,ob.width,ob.height);
-			objRects.push_back(rec);
-			//cout << "Object rect is "<<ob.left<<"  "<<ob.top << "  " <<ob.width << "  " <<ob.height<<endl;
-		}
+	
 	
 	}
 	vector<sf::FloatRect> getRects() {
@@ -43,8 +43,14 @@ public:
 		if (layers[idx]->getType() == tmx::Layer::Type::Object)
 		{
 			objects = dynamic_cast<tmx::ObjectGroup*>(layers[idx].get())->getObjects();
-
+			for (int i = 0; i < objects.size(); i++) {
+				tmx::FloatRect ob = objects[i].getAABB();
+				sf::FloatRect rec(ob.left, ob.top, ob.width, ob.height);
+				objRects.push_back(rec);
+				//	cout << "Object rect is "<<ob.left<<"  "<<ob.top << "  " <<ob.width << "  " <<ob.height<<endl;
+			}
 		}
+
 	}
 	vector<Object, allocator<Object>> getAllObjects(){
 		return objects;
