@@ -48,10 +48,15 @@ class Hero : public Drawable {
 		sf::FloatRect getRect() {
 			return rect;
 		}
-		void setHeroPos(int x, int y) {
-			sprite.setPosition(x, y);
+		void setHeroPos(sf::Vector2f pos) {
+			sprite.setPosition(pos);
 			rect = sprite.getGlobalBounds();
+		
 		}
+		sf::Vector2f getHeroPos() {
+			return sprite.getPosition();
+		}
+
 		bool moveHeroTo(sf::Vector2i where, float time) {
 			int x = where.x;
 			int y = where.y;

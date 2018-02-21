@@ -13,7 +13,6 @@ private :
 	bool Running = true;
 	tmx::Map map;
 	Hero h;
-	bool moving = false;
 	sf::Vector2i moveto;
 	MapLayer layerZero;
 	MapLayer layerOne;
@@ -21,7 +20,7 @@ private :
 	Objects allobj;
 public:
 	MapScreen(){
-		map.load("assets/mymap.tmx");
+		map.load("assets/mymap2.tmx");
 		layerZero.setMap(map, 0);
 		layerOne.setMap(map, 1);
 		allobj.setObjects(map, 2);
@@ -36,20 +35,19 @@ public:
 		}
 		return clickedon;
 	}
-	string checkCollision(Objects colobjs,sf::FloatRect charRect) {
+	void checkCollision(Objects colobjs,sf::FloatRect charRect) {
 		vector<sf::FloatRect> rects = colobjs.getRects();
-		string objName = "nothing";
 		for (int i = 0; i < rects.size(); i++) {
 			if (charRect.intersects(rects[i])) {
-				objName = colobjs.getObject(i).getName();
+				cout << "Collision with object: " << colobjs.getObject(i).getName() << endl;
 			}
 			
 		}
-		return objName;
 	}
 	int MapScreen::Run(sf::RenderWindow &App) {
 		Running = true;
-		
+		bool moving = false;
+
 		while (Running)
 		{
 			float time = clock.getElapsedTime().asMilliseconds();
@@ -67,22 +65,27 @@ public:
 			App.draw(layerZero);
 			App.draw(layerOne);
 
-			if (Mouse::isButtonPressed(Mouse::Button::Left)) {
-				if (whereClicked(sf::Vector2f(Mouse::getPosition(App)),allobj) == "menu") {
+			if (Event.type == sf::Event::MouseButtonPressed) {
+				
+			
+				if ((Event.mouseButton.button == sf::Mouse::Left)) {
+				if (whereClicked(sf::Vector2f(Mouse::getPosition(App)), allobj) == "menu") {
 					Running = false;
+					moving = false;
 					return (1);
 				}
 				else {
+				
 					moveto = Mouse::getPosition(App);
 					moving = true;
+				}
 				}
 			}
 
 			if (moving) {
-			//	cout << "Player rect is" << h.getRect().left << "  " << h.getRect().top << "  " << h.getRect().width << "  " << h.getRect().height << endl;
 				moving = h.moveHeroTo(moveto, time); 
 			}
-		
+			checkCollision(allobj, h.getRect());
 
 			App.draw(h);
 			

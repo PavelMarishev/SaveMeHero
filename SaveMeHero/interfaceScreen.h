@@ -31,8 +31,8 @@ public:
 				}
 			}
 		
-			if (Mouse::isButtonPressed(Mouse::Button::Left)) {
-				cout << ci.whereClicked(sf::Vector2f(Mouse::getPosition(App))) << endl;
+			if ((Event.type == sf::Event::MouseButtonPressed)&& (Event.mouseButton.button == sf::Mouse::Left) ) {
+			//	cout << ci.whereClicked(sf::Vector2f(Mouse::getPosition(App))) << endl;
 				if (ci.whereClicked(sf::Vector2f(Mouse::getPosition(App)))=="game") {
 					return(0);
 			}
