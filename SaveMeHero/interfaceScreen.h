@@ -16,7 +16,7 @@ public:
 		
 		Clock clock;
 		CharInterface ci;
-		string whereIsNow = "stats";
+		
 		while (Running)
 		{
 			float time = clock.getElapsedTime().asMilliseconds();
@@ -32,8 +32,11 @@ public:
 			}
 		
 			if (Mouse::isButtonPressed(Mouse::Button::Left)) {
-				whereIsNow = ci.whereClicked(sf::Vector2f(Mouse::getPosition(App)));
-				cout << whereIsNow<<endl;
+				cout << ci.whereClicked(sf::Vector2f(Mouse::getPosition(App))) << endl;
+				if (ci.whereClicked(sf::Vector2f(Mouse::getPosition(App)))=="game") {
+					return(0);
+			}
+				
 			}
 			App.clear();
 			App.draw(ci);

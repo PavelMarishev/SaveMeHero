@@ -8,28 +8,47 @@
 using namespace sf;
 
 class MapScreen : public cScreen {
-
+private :
+	Event Event;
+	bool Running = true;
+	tmx::Map map;
+	Hero h;
+	bool moving = false;
+	sf::Vector2i moveto;
+	MapLayer layerZero;
+	MapLayer layerOne;
+	Clock clock;
+	Objects allobj;
 public:
-	void checkCollision(Objects colobjs,sf::FloatRect charRect) {
-		vector<sf::FloatRect> rects = colobjs.getRects();
+	MapScreen(){
+		map.load("assets/mymap.tmx");
+		layerZero.setMap(map, 0);
+		layerOne.setMap(map, 1);
+		allobj.setObjects(map, 2);
+	}
+	string whereClicked(sf::Vector2f point, Objects clickable) {
+		string clickedon = "nothing";
+		vector<sf::FloatRect> rects = clickable.getRects();
 		for (int i = 0; i < rects.size(); i++) {
-			if(charRect.intersects(rects[i]))cout<<"Collision";
+			if (rects[i].contains(point)) {
+				clickedon = clickable.getObject(i).getName();
+			}
+		}
+		return clickedon;
+	}
+	string checkCollision(Objects colobjs,sf::FloatRect charRect) {
+		vector<sf::FloatRect> rects = colobjs.getRects();
+		string objName = "nothing";
+		for (int i = 0; i < rects.size(); i++) {
+			if (charRect.intersects(rects[i])) {
+				objName = colobjs.getObject(i).getName();
+			}
 			
 		}
-	
+		return objName;
 	}
 	int MapScreen::Run(sf::RenderWindow &App) {
-		Event Event;
-		bool Running = true;
-		tmx::Map map;
-		map.load("assets/mymap.tmx");
-		MapLayer layerZero(map, 0);
-		MapLayer layerOne(map, 1);
-		Hero h;
-		Clock clock;
-		bool moving = false;
-		sf::Vector2i moveto;
-		Objects allobj(map,2);
+		Running = true;
 		
 		while (Running)
 		{
@@ -49,15 +68,21 @@ public:
 			App.draw(layerOne);
 
 			if (Mouse::isButtonPressed(Mouse::Button::Left)) {
-				moveto = Mouse::getPosition(App);
-				moving = true;
+				if (whereClicked(sf::Vector2f(Mouse::getPosition(App)),allobj) == "menu") {
+					Running = false;
+					return (1);
+				}
+				else {
+					moveto = Mouse::getPosition(App);
+					moving = true;
+				}
 			}
 
 			if (moving) {
 			//	cout << "Player rect is" << h.getRect().left << "  " << h.getRect().top << "  " << h.getRect().width << "  " << h.getRect().height << endl;
 				moving = h.moveHeroTo(moveto, time); 
 			}
-			checkCollision(allobj,h.getRect());
+		
 
 			App.draw(h);
 			

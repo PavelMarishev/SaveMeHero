@@ -13,8 +13,8 @@ int main()
 	//To add scene just create onbject screen of it and push into Screens array
 	MapScreen mainMapScreen;
 	Screens.push_back(&mainMapScreen);
-//	InterfaceScreen interfaceScreen;
-	//Screens.push_back(&interfaceScreen);
+	InterfaceScreen interfaceScreen;
+	Screens.push_back(&interfaceScreen);
 	while (screen >= 0)
 	{
 		screen = Screens[screen]->Run(App);

@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.1" orientation="orthogonal" renderorder="right-down" width="25" height="25" tilewidth="32" tileheight="32" infinite="0" nextobjectid="18">
+<map version="1.0" tiledversion="1.1.1" orientation="orthogonal" renderorder="right-down" width="25" height="25" tilewidth="32" tileheight="32" infinite="0" nextobjectid="20">
  <tileset firstgid="1" name="grass03" tilewidth="32" tileheight="32" tilecount="256" columns="16">
   <image source="images/tilemap/grass03.png" width="512" height="512"/>
  </tileset>
  <tileset firstgid="257" name="baum" tilewidth="32" tileheight="32" tilecount="16" columns="4">
   <image source="images/tilemap/baum.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="273" name="GameButtons" tilewidth="42" tileheight="42" tilecount="25" columns="5">
+  <image source="images/GameButtons.png" width="213" height="237"/>
  </tileset>
  <layer name="lay1" width="25" height="25">
   <data encoding="csv">
@@ -38,7 +41,7 @@
  <layer name="lay2" width="25" height="25">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,257,258,259,260,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,257,258,259,260,0,0,0,280,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,261,262,263,264,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,265,266,267,268,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,269,270,271,272,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -66,5 +69,6 @@
  </layer>
  <objectgroup name="objects">
   <object id="15" name="tree" x="24" y="6" width="174" height="196"/>
+  <object id="18" name="menu" x="334" y="12" width="68" height="58"/>
  </objectgroup>
 </map>
