@@ -10,7 +10,6 @@ using namespace sf;
 class MapScreen : public cScreen,public Hero {
 private :
 	float  spPosX, spPosY;
-	Event Event;
 	bool Running = true;
 	tmx::Map map;
 	Hero h;
@@ -56,7 +55,7 @@ public:
 	int MapScreen::Run(sf::RenderWindow &App) {
 		Running = true;
 		bool moving = false;
-
+		Event Event;
 		while (Running)
 		{
 			float time = clock.getElapsedTime().asMilliseconds();
@@ -74,22 +73,7 @@ public:
 			App.draw(layerZero);
 			App.draw(layerOne);
 
-			if (Event.type == sf::Event::MouseButtonPressed) {
-				
-			
-				if ((Event.mouseButton.button == sf::Mouse::Left)) {
-				if (whereClicked(sf::Vector2f(Mouse::getPosition(App)), allobj) == "menu") {
-					Running = false;
-					moving = false;
-					return (1);
-				}
-				else{
-				
-					moveto = Mouse::getPosition(App);
-					moving = true;
-				}
-				}
-			}
+		
 
 			if (moving) {
 				moving = h.moveHeroTo(moveto, time); 
@@ -104,6 +88,22 @@ public:
 
 			App.draw(h);
 			App.display();
+			if (Event.type == sf::Event::MouseButtonPressed) {
+
+
+				if ((Event.mouseButton.button == sf::Mouse::Left)) {
+					if (whereClicked(sf::Vector2f(Mouse::getPosition(App)), allobj) == "menu") {
+						Running = false;
+						moving = false;
+						return (1);
+					}
+					else {
+
+						moveto = Mouse::getPosition(App);
+						moving = true;
+					}
+				}
+			}
 		}
 
 		return 0;
