@@ -7,8 +7,9 @@
 
 using namespace sf;
 
-class MapScreen : public cScreen {
+class MapScreen : public cScreen,public Hero {
 private :
+	float  spPosX, spPosY;
 	Event Event;
 	bool Running = true;
 	tmx::Map map;
@@ -35,11 +36,19 @@ public:
 		}
 		return clickedon;
 	}
-	void checkCollision(Objects colobjs,sf::FloatRect charRect) {
+	bool checkCollision(Objects colobjs,sf::FloatRect charRect) {
 		vector<sf::FloatRect> rects = colobjs.getRects();
 		for (int i = 0; i < rects.size(); i++) {
 			if (charRect.intersects(rects[i])) {
 				cout << "Collision with object: " << colobjs.getObject(i).getName() << endl;
+			/*sf::Vector2f SpritePxPos = sprite.getPosition();
+			
+				spPosX = SpritePxPos.x;
+				spPosY = SpritePxPos.y;
+				sprite.setPosition(spPosX, spPosY);*/
+				sprite.move(10, 10);
+
+				return true;
 			}
 			
 		}
@@ -74,7 +83,7 @@ public:
 					moving = false;
 					return (1);
 				}
-				else {
+				else{
 				
 					moveto = Mouse::getPosition(App);
 					moving = true;
@@ -85,10 +94,15 @@ public:
 			if (moving) {
 				moving = h.moveHeroTo(moveto, time); 
 			}
-			checkCollision(allobj, h.getRect());
+			bool Col = checkCollision(allobj, h.getRect());
+			if (Col == true)
+			{
+				moving = false;
+			
+
+			}
 
 			App.draw(h);
-			
 			App.display();
 		}
 

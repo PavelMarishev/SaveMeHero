@@ -7,9 +7,7 @@ using namespace sf;
 using namespace std;
 class Hero : public Drawable {
 	private:
-		Texture texture;
-		Sprite sprite;
-		sf::FloatRect rect;
+		
 		float frame = 0;
 		virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const
 		{
@@ -18,8 +16,11 @@ class Hero : public Drawable {
 			target.draw(sprite, states);
 		}
 	public:
+		Texture texture;
+		Sprite sprite;
+		sf::FloatRect rect;
 		//stats
-		int money = 100;
+		int money = 100000;
 		int crystals = 5;
 		int maxhealth = 100;
 		int currhealth = 99;
