@@ -54,6 +54,7 @@ class Dialog {
 	{
 		string buf = s;
 		buf = cutSpace(buf);
+		int tempBuf = 0;
 		int len = Len, size = Size, i = 0, temp = 0;
 		while (i < (buf.length()))
 		{
@@ -68,6 +69,7 @@ class Dialog {
 						buf[i - j] = '\n';
 						temp = j;
 						found = true;
+						tempBuf += (j);
 						break;
 					}
 				}
@@ -79,16 +81,16 @@ class Dialog {
 			}
 			temp++;
 			i++;
-			if (i > size)
+			if (i > (size*len) - tempBuf)
 			{
-				buf.resize(size);
+				buf.resize((size*len) - tempBuf);
 				buf += "...";
 			}
 		}
 		return buf;
 	}
 public:
-	Dialog(int size = 15, Color color = Color::Black, char* default = "",int type = 0)
+	Dialog(int size = 14, Color color = Color::Black, char* default = "",int type = 0)
 	{
 		font.loadFromFile("CyrilicOld.ttf");
 		text.setString(default);
@@ -108,35 +110,25 @@ public:
 		} while (temp == currentIdea);
 	}
 	//showSmallWindow выводит маленькое диалоговое окно возле героя, параметры: текст, положение героя, окно, высота, ширина абзаца
-	void showSmallWindow(string speach, Vector2f obj, RenderWindow &window, int forMode = 0, int limitH = 5, int limitW = 10)
+	void showSmallWindow(string speach, Vector2f obj, RenderWindow &window, int forMode = 0, int limitH = 4, int limitW = 10, float forTextAlign = 100, float Scale = 100)
 	{
 		switch (forMode)
 		{
-		case 0:
-		{
-			text.setString(format(speach, limitW, limitW*limitH));
-			break;
-		}
-		case 1:
-		{
-			text.setString(format(currentIdea, limitW, limitW*limitH));
-			break;
-		}
+		case 0: {text.setString(format(speach, limitW, limitH)); break; }
+		case 1: {text.setString(format(currentIdea, limitW, limitH)); break; }
 		}
 		
-		text.setPosition(Vector2f(obj.x + 30, obj.y - text.getCharacterSize()*limitH));
+		text.setPosition(Vector2f(obj.x + 50, obj.y - (text.getCharacterSize() + 1)*limitH));
 		
-		RectangleShape rect(Vector2f(limitW*(text.getCharacterSize() / 1.5), text.getCharacterSize()*limitH + 3));
-		rect.setPosition(Vector2f(obj.x + 25, obj.y - text.getCharacterSize()*limitH));
-		rect.setFillColor(Color(255, 255, 255, 169));
-		/*
 		Texture dialTx;
-		dialTx.loadFromFile("dialog.png");
+		dialTx.loadFromFile("assets/images/dialWindow.png");
+		
 		Sprite s(dialTx);
-		s.setPosition(Vector2f(obj.x + 15, obj.y - 15));
+		s.setColor(Color(255,255,255,150));
+		s.setScale(Vector2f(1.0/(700/(limitW*(text.getCharacterSize()-3))), 1.0 / (222 / (text.getCharacterSize()*limitH))));
+		s.setPosition(Vector2f(obj.x + 25, obj.y - (text.getCharacterSize()+3)*limitH));
+
 		window.draw(s);//хвост окна диалога   
-		*/
-		window.draw(rect);
 		window.draw(text);
 	}
 	void showBigWindow(string speach, RenderWindow &window,int h = 450, int k = 5)//большое окно внизу
@@ -144,7 +136,7 @@ public:
 		RectangleShape rect(Vector2f(window.getSize().x, window.getSize().y / k));
 		text.setString(speach);
 
-		text.setPosition(Vector2f(0, h));//2 параметр задает высоту текста(сверху)
+		text.setPosition(Vector2f(10, h));//2 параметр задает высоту текста(сверху)
 		rect.setPosition(Vector2f(0, h));//2 параметр задает высоту окна(сверху)
 		rect.setFillColor(Color(255, 255, 255, 169));//4 параметр - прозрачность
 		window.draw(rect);

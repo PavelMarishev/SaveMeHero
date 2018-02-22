@@ -86,21 +86,21 @@ class Hero : public Drawable {
 			}
 
 			if (heroSprite.getPosition().x < x) {
-				heroSprite.move(300 * time, 0);
+				heroSprite.move(200 * time, 0);
 				moving = true;
 
 			}
 			if (heroSprite.getPosition().x > x) {
-				heroSprite.move(-300 * time, 0);
+				heroSprite.move(-200 * time, 0);
 				moving = true;
 			}
 
 			if (heroSprite.getPosition().y < y) {
-				heroSprite.move(0, 300 * time);
+				heroSprite.move(0, 200 * time);
 				moving = true;
 			}
 			if (heroSprite.getPosition().y > y) {
-				heroSprite.move(0, -300 * time);
+				heroSprite.move(0, -200 * time);
 				moving = true;
 			}
 			return moving;

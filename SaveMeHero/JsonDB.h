@@ -19,7 +19,6 @@ public:
 		bool parsingSuccessful = reader->parse(stream, root);
 		if (!parsingSuccessful)
 		{
-			// report to the user the failure and their locations in the document.
 			std::cout << "Failed to parse configuration\n"<< reader->getFormattedErrorMessages();
 			return NULL;
 		}
@@ -52,6 +51,5 @@ public:
 
 		// And you can write to a stream, using the StyledWriter automatically.
 		//std::cout << root;
-
 	}
 };

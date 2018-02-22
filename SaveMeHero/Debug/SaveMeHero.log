@@ -14,12 +14,11 @@ c:\test\savemehero\savemehero\dial.h(21): warning C4018: <: несоответс
 c:\test\savemehero\savemehero\dial.h(34): warning C4018: >: несоответствие типов со знаком и без знака
 c:\test\savemehero\savemehero\dial.h(38): warning C4018: <: несоответствие типов со знаком и без знака
 c:\test\savemehero\savemehero\dial.h(40): warning C4018: <: несоответствие типов со знаком и без знака
-c:\test\savemehero\savemehero\dial.h(58): warning C4018: <: несоответствие типов со знаком и без знака
-c:\test\savemehero\savemehero\dial.h(129): warning C4244: аргумент: преобразование "unsigned int" в "float", возможна потеря данных
-c:\test\savemehero\savemehero\dial.h(129): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-c:\test\savemehero\savemehero\dial.h(144): warning C4244: аргумент: преобразование "unsigned int" в "float", возможна потеря данных
-c:\test\savemehero\savemehero\dial.h(147): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-c:\test\savemehero\savemehero\dial.h(148): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\test\savemehero\savemehero\dial.h(59): warning C4018: <: несоответствие типов со знаком и без знака
+c:\test\savemehero\savemehero\dial.h(128): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+c:\test\savemehero\savemehero\dial.h(136): warning C4244: аргумент: преобразование "unsigned int" в "float", возможна потеря данных
+c:\test\savemehero\savemehero\dial.h(139): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\test\savemehero\savemehero\dial.h(140): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
 c:\test\savemehero\savemehero\testscreen.h(30): warning C4244: инициализация: преобразование "sf::Int32" в "float", возможна потеря данных
 c:\test\savemehero\savemehero\testscreen.h(31): warning C4244: инициализация: преобразование "float" в "long", возможна потеря данных
 c:\test\savemehero\savemehero\player.h(24): warning C4305: =: усечение из "double" в "float"

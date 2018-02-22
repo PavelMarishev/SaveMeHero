@@ -23,7 +23,7 @@ public:
 		Clock clock1,clock2;
 		bool moving = false;
 		Vector2i moveto;
-		Dialog dial(15);
+		Dialog dial(14);
 		dial.thinkOfAnother();
 		while (Running)
 		{
@@ -42,20 +42,7 @@ public:
 			//App.clear();
 			App.draw(layerZero);
 			App.draw(layerOne);
-			
-			if (Mouse::isButtonPressed(Mouse::Button::Left)) {
-				moveto = Mouse::getPosition(App);
-				moving = true;
-			}
-			if (moving) {
-				moving = h.moveHeroTo(moveto, time); 
-			}
-			App.draw(h);
-
-			if (interval >= 8) {
-				toShowDial = true;
-			}
-			if(interval >= 11)
+			if (interval >= 9)
 			{
 				if (toShowDial)
 				{
@@ -64,12 +51,24 @@ public:
 				}
 				toShowDial = false;
 			}
+			else if (interval >= 5) {
+				toShowDial = true;
+			}
 			if (toShowDial)
 			{
-				dial.showSmallWindow(to_string(time*800), h.getHeroPos(), App, 1);
+				dial.showSmallWindow("...", h.getHeroPos(), App, 1);
 			}
-
-			dial.showBigWindow("привет", App);
+			if (Mouse::isButtonPressed(Mouse::Button::Left)) {
+				moveto = Mouse::getPosition(App);
+				moving = true;
+			}
+			if (moving) {
+				moving = h.moveHeroTo(moveto, time); 
+			}
+			App.draw(h);
+			
+			
+			dial.showBigWindow("...", App);
 
 			App.display();
 		}
