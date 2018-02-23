@@ -1,0 +1,48 @@
+{
+"context1" : [
+		{
+			"en":"I am hungry",
+			"ru":"хочу есть"
+		},
+		{
+			"en":"I'm just a man",
+			"ru":"я просто человек"
+		},
+		{
+			"en":"I want to sleep",
+			"ru":"спать хочу"
+		},
+		{
+			"en":"I feel that someone is following me",
+			"ru":"кажется, за мной следят"
+		},
+		{
+			"en":"life is shit",
+			"ru":"жизнь is shit"
+		},
+		{
+			"en":"armor looks like pajamas",
+			"ru":"доспех выглядит как пижама"
+		},
+		{
+			"en":"I will become a hero!",
+			"ru":"я стану героем!"
+		},
+		{
+			"en":"such beautiful trees",
+			"ru":"какие красивые деревья"
+		},
+		{
+			"en":"c ++ is the best",
+			"ru":"с++ топ"
+		},
+		{
+			"en":"where to get money?",
+			"ru":"где взять денег?"
+		},
+		{
+			"en":"Who am I?",
+			"ru":"кто я?"
+		}
+	]
+}

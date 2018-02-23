@@ -19,14 +19,18 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Log.cpp" />
     <ClCompile Include="SceneManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="allScreens.h" />
     <ClInclude Include="charInterface.h" />
     <ClInclude Include="cScreen.h" />
+    <ClInclude Include="dial.h" />
     <ClInclude Include="hero.h" />
     <ClInclude Include="interfaceScreen.h" />
+    <ClInclude Include="JsonDB.h" />
+    <ClInclude Include="Log.h" />
     <ClInclude Include="mapScreen.h" />
     <ClInclude Include="objectsLayer.h" />
     <ClInclude Include="SFMLOrthogonalLayer.hpp" />
@@ -93,11 +97,11 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\SFML-2.4.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\packages\jsoncpp.0.6.0.1\build\native\include;..\SFML-2.4.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>SFML_DYNAMIC;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>..\SFML-2.4.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\packages\jsoncpp.0.6.0.1\build\native\lib;..\SFML-2.4.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-audio-d.lib;sfml-network-d.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -140,6 +144,8 @@
     <Import Project="..\packages\zlib128-vc140-static-32_64.1.2.8\build\native\zlib128-vc140-static-32_64.targets" Condition="Exists('..\packages\zlib128-vc140-static-32_64.1.2.8\build\native\zlib128-vc140-static-32_64.targets')" />
     <Import Project="..\packages\tmxlite_native.redist.1.0.2\build\native\tmxlite_native.redist.targets" Condition="Exists('..\packages\tmxlite_native.redist.1.0.2\build\native\tmxlite_native.redist.targets')" />
     <Import Project="..\packages\tmxlite_native.1.0.2\build\native\tmxlite_native.targets" Condition="Exists('..\packages\tmxlite_native.1.0.2\build\native\tmxlite_native.targets')" />
+    <Import Project="..\packages\jsoncpp.redist.0.6.0.1\build\native\jsoncpp.redist.targets" Condition="Exists('..\packages\jsoncpp.redist.0.6.0.1\build\native\jsoncpp.redist.targets')" />
+    <Import Project="..\packages\jsoncpp.0.6.0.1\build\native\jsoncpp.targets" Condition="Exists('..\packages\jsoncpp.0.6.0.1\build\native\jsoncpp.targets')" />
   </ImportGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
@@ -149,5 +155,7 @@
     <Error Condition="!Exists('..\packages\zlib128-vc140-static-32_64.1.2.8\build\native\zlib128-vc140-static-32_64.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\zlib128-vc140-static-32_64.1.2.8\build\native\zlib128-vc140-static-32_64.targets'))" />
     <Error Condition="!Exists('..\packages\tmxlite_native.redist.1.0.2\build\native\tmxlite_native.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\tmxlite_native.redist.1.0.2\build\native\tmxlite_native.redist.targets'))" />
     <Error Condition="!Exists('..\packages\tmxlite_native.1.0.2\build\native\tmxlite_native.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\tmxlite_native.1.0.2\build\native\tmxlite_native.targets'))" />
+    <Error Condition="!Exists('..\packages\jsoncpp.redist.0.6.0.1\build\native\jsoncpp.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\jsoncpp.redist.0.6.0.1\build\native\jsoncpp.redist.targets'))" />
+    <Error Condition="!Exists('..\packages\jsoncpp.0.6.0.1\build\native\jsoncpp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\jsoncpp.0.6.0.1\build\native\jsoncpp.targets'))" />
   </Target>
 </Project>

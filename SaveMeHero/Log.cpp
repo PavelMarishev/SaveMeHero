@@ -1,15 +1,13 @@
 #include "Log.h"
 
-
-
 Log::Log()
 {
 	index = 0;
 	arr[0] = 0;
 }
 
-
 void Log::add(int x, int y) {
+	/*
 	if (((x < 100) && (y < 100)) && (arr[index] != 1))
 		arr[++index] = 1;
 	else if (((x < 200) && (x >= 100)) && ((y < 100) && (arr[index] != 2)))
@@ -111,8 +109,17 @@ void Log::add(int x, int y) {
 		arr[++index] = 47;
 	else if (((x < 800) && (x >= 700)) && (((y < 600) && (y >= 500)) && (arr[index] != 48)))
 		arr[++index] = 48;
+		*/
+	int h = 6, w = 13;
+	for (int i = 0; i <= h; i++) 
+	{
+		for (int j = 1; j <= w; j++)
+		{
+			if (x < 100 * j && x >= 100 * (j-1) && y < 100*i && y >= 100*(i-1) && arr[index] != (i-1)*w+j)
+				arr[++index] = (i - 1)*w + j;
+		}
+	}
 }
-
 
 string Log::get() {
 	string res = to_string(arr[1]);
@@ -121,12 +128,10 @@ string Log::get() {
 	return res;
 }
 
-
 void Log::clear() {
 	index = 0;
 	arr[0] = 0;
 }
-
 
 Log::~Log()
 {
