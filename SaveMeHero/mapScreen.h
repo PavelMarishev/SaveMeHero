@@ -121,7 +121,7 @@ public:
 
 			App.draw(h);
 			App.display();
-			if (Event.type == sf::Event::MouseButtonReleased) {
+			if (Event.type == sf::Event::MouseButtonPressed) {
 				if ((Event.mouseButton.button == sf::Mouse::Left)) {
 					if (whereClicked(sf::Vector2f(Mouse::getPosition(App)), allobj) == "menu") {
 						Running = false;
