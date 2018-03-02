@@ -3,15 +3,18 @@
  <tileset firstgid="1" name="newinterface3" tilewidth="32" tileheight="32" tilecount="760" columns="40">
   <image source="images/newinterface3.png" width="1280" height="623"/>
  </tileset>
- <tileset firstgid="761" name="GameButtons" tilewidth="42" tileheight="42" tilecount="25" columns="5">
-  <image source="images/GameButtons.png" width="213" height="237"/>
+ <tileset firstgid="761" name="grass03" tilewidth="32" tileheight="32" tilecount="256" columns="16">
+  <image source="images/tilemap/grass03.png" width="512" height="512"/>
+ </tileset>
+ <tileset firstgid="1017" name="buttons" tilewidth="32" tileheight="32" tilecount="952" columns="17">
+  <image source="images/tilemap/buttons.png" width="563" height="1800"/>
  </tileset>
  <objectgroup name="background">
   <object id="33" name="background" x="0" y="0" width="1280" height="706"/>
  </objectgroup>
  <layer name="char" width="40" height="22">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
  <objectgroup name="icons">
@@ -35,6 +38,6 @@
  </objectgroup>
  <objectgroup name="clickable">
   <object id="58" name="backpack" x="673" y="321" width="66" height="50"/>
-  <object id="62" name="game" x="1112" y="16" width="50" height="48"/>
+  <object id="62" name="game" x="1176.67" y="31.3333" width="67.3333" height="65.3333"/>
  </objectgroup>
 </map>

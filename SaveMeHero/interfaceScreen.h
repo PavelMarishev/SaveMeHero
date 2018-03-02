@@ -12,6 +12,8 @@ public:
 	int InterfaceScreen::Run(sf::RenderWindow &App) {
 		Event Event;
 		bool Running = true;
+		sf::View view;
+		view.reset(sf::FloatRect(0, 0, 1280, 623));
 	///TODO make class inteface
 		
 		Clock clock;
@@ -38,6 +40,7 @@ public:
 			}
 				
 			}
+			App.setView(view);
 			App.clear();
 			App.draw(ci);
 			App.display();

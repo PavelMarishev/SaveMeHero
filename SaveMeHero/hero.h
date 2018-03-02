@@ -9,6 +9,7 @@ class Hero : public Drawable {
 	private:
 		
 		float frame = 0;
+		int speed = 300;
 		virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const
 		{
 			Sprite todraw = sprite;
@@ -42,8 +43,8 @@ class Hero : public Drawable {
 		Hero() {
 			texture.loadFromFile("assets/images/hero.png");
 			sprite.setTexture(texture);
-			sprite.setTextureRect(sf::IntRect(0, 0, 30, 65));
-			sprite.setPosition(400, 400);
+			sprite.setTextureRect(sf::IntRect(0, 0, 30, 60));
+			sprite.setPosition(1700, 2100);
 			rect = sprite.getGlobalBounds();
 		};
 		sf::FloatRect getRect() {
@@ -58,7 +59,7 @@ class Hero : public Drawable {
 			return sprite.getPosition();
 		}
 
-		bool moveHeroTo(sf::Vector2i where, float time) {
+		bool moveHeroTo(sf::Vector2f where, float time) {
 			int x = where.x;
 			int y = where.y;
 
@@ -71,23 +72,23 @@ class Hero : public Drawable {
 		
 				if ((sprite.getPosition().x) != x) {
 					if (sprite.getPosition().x < x) {
-						sprite.move(300*time, 0);
+						sprite.move(speed*time, 0);
 						moving = true;
 
 					}
 					if (sprite.getPosition().x > x) {
-						sprite.move(-300*time, 0);
+						sprite.move(-speed *time, 0);
 						moving = true;
 					}
 				}
 
 				if ((sprite.getPosition().y) != y) {
 					if (sprite.getPosition().y < y) {
-						sprite.move(0, 300*time);
+						sprite.move(0, speed*time);
 						moving = true;
 					}
 					if (sprite.getPosition().y > y) {
-						sprite.move(0, -300*time);
+						sprite.move(0, -speed *time);
 						moving = true;
 					}
 				}
