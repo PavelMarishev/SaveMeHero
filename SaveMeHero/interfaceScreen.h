@@ -7,8 +7,13 @@ using namespace sf;
 
 class InterfaceScreen :public cScreen
 {
+private:
+	Sprite * cursor;
 
 public:
+	InterfaceScreen(Sprite * cur) {
+		cursor = cur;
+	}
 	int InterfaceScreen::Run(sf::RenderWindow &App) {
 		Event Event;
 		bool Running = true;
@@ -43,11 +48,17 @@ public:
 			App.setView(view);
 			App.clear();
 			App.draw(ci);
+			cursor->setPosition(getMouseGlobalPos(App));
+			App.draw(*cursor);
 			App.display();
 		}
 
 		return EXIT_SUCCESS;
 
 	}
-
+	sf::Vector2f getMouseGlobalPos(sf::RenderWindow &window) {
+		sf::Vector2i pixelPos = sf::Mouse::getPosition(window);
+		sf::Vector2f worldPos = window.mapPixelToCoords(pixelPos);
+		return worldPos;
+	}
 };
