@@ -69,7 +69,7 @@ class Hero : public Drawable {
 	
 			if (frame > 5)frame = 1;
 			sprite.setTextureRect(sf::IntRect(33 * (int)frame, 0, 25, 60));
-		
+		        
 				if ((sprite.getPosition().x) != x) {
 					if (sprite.getPosition().x < x) {
 						sprite.move(speed*time, 0);
@@ -93,14 +93,14 @@ class Hero : public Drawable {
 					}
 				}
 				rect = sprite.getGlobalBounds();
-				if (rect.contains(sf::Vector2f(where))) {
+				if (rect.contains(where)) {
 					moving = false;
 					sprite.setTextureRect(sf::IntRect(0, 0, 30, 60));
 				}
+				
+
+
+
 				return moving;
-
 		}
-
-	
-
 };
