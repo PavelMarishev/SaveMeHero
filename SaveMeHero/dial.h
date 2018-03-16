@@ -126,8 +126,8 @@ public:
 		
 		Sprite s(dialTx);
 		s.setColor(Color(255,255,255,150));
-		s.setScale(1.0/(700/(limitW*(text.getCharacterSize()-3))), 1.0 / (200 / (text.getCharacterSize()*limitH)));
-		s.setPosition(sf::Vector2f(obj.x + 25, obj.y - (text.getCharacterSize()+3)*limitH));
+		s.setScale(1.0/(700/(limitW*(text.getCharacterSize()-3))), 1.0 / ((200+ text.getCharacterSize()*2) / (text.getCharacterSize()*limitH)));
+		s.setPosition(sf::Vector2f(obj.x + 20, obj.y - (text.getCharacterSize()+3)*limitH));
 
 		window.draw(s); 
 		window.draw(text);

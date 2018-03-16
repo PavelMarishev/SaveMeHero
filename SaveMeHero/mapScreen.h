@@ -6,6 +6,7 @@
 #include "hero.h"
 #include "Log.h"
 #include "Brain.h" 
+#include "actions.h"
 
 using namespace sf;
 
@@ -29,6 +30,7 @@ private :
 	Sprite ArrowCursor;
 	vector<sf::Vector2f> path;//путь
 	int stepsLeft = 0;
+	bool autoActing = true;
 public:
 	MapScreen(Sprite * cur){
 		map.load("assets/bigmap.tmx");
@@ -39,8 +41,7 @@ public:
 		arrowsText.loadFromFile("assets/images/cursors.png");
 		ArrowCursor.setTexture(arrowsText);
 		ArrowCursor.setTextureRect(sf::IntRect(177,79,10,10));
-		ArrowCursor.setScale(2, 2);
-
+		ArrowCursor.setScale(2,2);
 	}
 	string whereClicked(sf::Vector2f point, Objects clickable) {
 		string clickedon = "nothing";
@@ -58,7 +59,6 @@ public:
 			if (charRect.intersects(rects[i])) {
 				cout << "Collision with object: " << colobjs.getObject(i).getName();// << endl;
 				sprite.move(10, 10);
-
 				return true;
 			}
 			
@@ -74,7 +74,9 @@ public:
 		view.reset(sf::FloatRect(0,0,1280,623));
 		view.setCenter(h.getHeroPos());
 		Brain brain(false);
+		PathFinding PF(map,allobj);
 		long interval;
+		Actions actions("walk");
 		while (Running)
 		{
 			float time = clock.getElapsedTime().asMilliseconds();
@@ -140,14 +142,19 @@ public:
 			
 			if (moving && !isPressed) {
 				moving = h.moveHeroTo(path[path.size()-1], time);
-				//view.setCenter(h.getHeroPos());
+				view.setCenter(h.getHeroPos());
+				autoActing = true;
 			}
 			if (path.size() > 1 && !moving)
 			{
 				path.pop_back();
 				moving = true;
+				autoActing = false;
 			}
-
+			if (autoActing) 
+			{
+				actions.walk(PF, &path, h);
+			}
 
 			bool Col = checkCollision(allobj, h.getRect());
 			
@@ -201,9 +208,7 @@ public:
 					else {
 						destination = getMouseGlobalPos(App);
 						//найти путь
-						path = brain.findPath(h.getHeroPos().x, h.getHeroPos().y, destination.x, destination.y, map, allobj);
-						for (int i = 0; i < path.size(); i++) cout << endl << path[i].x << " " << path[i].y;
-						cout << endl;
+						path = PF.findPath(h.getHeroPos().x, h.getHeroPos().y, destination.x, destination.y);
 						moving = true;
 					}
 				}

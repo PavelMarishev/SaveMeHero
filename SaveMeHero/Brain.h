@@ -13,7 +13,7 @@ class Brain
 public:
 	Brain(bool TSD = false) 
 	{
-		dial = new Dialog(15);
+		dial = new Dialog(25);
 		toShowDial = TSD;
 	}
 	void update(Hero h, RenderWindow &App)
@@ -36,53 +36,78 @@ public:
 			dial->showSmallWindow("...", h.getHeroPos(), App, 1);
 		}
 	}
-	vector<sf::Vector2f> findPath(int Ax, int Ay, int Bx, int By, tmx::Map &map, Objects &allobj)
+};
+
+
+
+
+
+
+
+
+class PathFinding
+{
+	int hw, hh;
+	sf::Vector2u objSize;
+	const int WALL = -1;
+	const int BLANK = -2;
+	int w;
+	int h;
+	int **grid;
+	int length;
+	vector<sf::FloatRect> ObjRects;
+public:
+	PathFinding(tmx::Map &map, Objects &allobj)
 	{
-		int hw = 30, hh = 60;
-		sf::Vector2u objSize;
-		const int WALL = -1;
-		const int BLANK = -2;
-		int w = map.getBounds().width/hw;
-		int h = map.getBounds().height/hh;
+		hw = 30;
+		hh = 60;
+		w = map.getBounds().width / hw;
+		h = map.getBounds().height / hh;
+		grid = new int*[h];
+		ObjRects = allobj.getRects();
+	}
+	vector<sf::Vector2f> findPath(int Ax, int Ay, int Bx, int By)
+	{
 		vector<sf::Vector2f> path;
-		path.push_back(sf::Vector2f(Bx, By));
-		int **grid = new int*[h];
-		int length;
-		int currentObj = 0;
-		int ax = Ax / hw , ay = Ay / hh, bx = Bx / hw, by = By / hh;
-		vector<sf::FloatRect> ObjRects = allobj.getRects();
-		for (int i = 0; i< h; i++) 
+		
+		int ax = Ax / hw, ay = Ay / hh, bx = Bx / hw, by = By / hh;
+		for (int i = 0; i< h; i++)
 		{
 			grid[i] = new int[w];
-			for (int j = 0; j < w; j++) 
+			for (int j = 0; j < w; j++)
 			{
 				bool intersection = false;
 				for (int k = 0; k < ObjRects.size(); k++)
 				{
-					if (sf::FloatRect(sf::Vector2f(j * hw, i * hh), sf::Vector2f(hw, hh)).intersects(ObjRects[k])) 
+					if (sf::FloatRect(sf::Vector2f(j * hw, i * hh), sf::Vector2f(hw, hh)).intersects(ObjRects[k]))
 					{
 						intersection = true;
 					}
 				}
-
 				if (intersection)
 				{
 					grid[i][j] = WALL;
-					cout << grid[i][j];
 				}
-				else 
+				else
 				{
 					grid[i][j] = BLANK;
 				}
 			}
 		}
+
+		if (grid[by][bx] == WALL)
+		{
+			path.push_back(sf::Vector2f(Ax, Ay));
+			return path;
+		}
+
 		int dx[4] = { 1, 0, -1, 0 };
 		int dy[4] = { 0, 1, 0, -1 };
 		int d, x, y, k;
 		bool stop;
-		
+
 		d = 0;
-		grid[ay][ax] = 0;            // стартова€ €чейка помечена 0
+		grid[ay][ax] = 0;
 		do {
 			stop = true;
 			for (y = 0; y < h; y++)
@@ -102,17 +127,21 @@ public:
 					}
 			d++;
 		} while (!stop && grid[by][bx] == BLANK);
-
-		if (grid[by][bx] == BLANK) return path;
-
+		/*
+		if (grid[by][bx] == BLANK)
+		{
+			path.push_back(sf::Vector2f(Ax, Ay));
+			return path;
+		}
+		*/
 		length = grid[by][bx];
 		x = bx;
 		y = by;
-
+		path.push_back(sf::Vector2f(Bx, By));
 		d = length;
-		while (d > 0)
+		while (d > 1)
 		{
-			path.push_back(sf::Vector2f(x*hw,y*hh));
+			path.push_back(sf::Vector2f(x*hw, y*hh));
 			d--;
 			for (k = 0; k < 4; ++k)
 			{
@@ -125,7 +154,6 @@ public:
 				}
 			}
 		}
-
 		return path;
 	}
 };

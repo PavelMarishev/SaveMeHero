@@ -34,6 +34,7 @@
     <ClInclude Include="Log.h" />
     <ClInclude Include="mapScreen.h" />
     <ClInclude Include="objectsLayer.h" />
+    <ClInclude Include="actions.h" />
     <ClInclude Include="SFMLOrthogonalLayer.hpp" />
     <ClInclude Include="TileManager.h" />
   </ItemGroup>
