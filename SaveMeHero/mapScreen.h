@@ -30,7 +30,7 @@ private :
 	Sprite ArrowCursor;
 	vector<sf::Vector2f> path;//путь
 	int stepsLeft = 0;
-	bool autoActing = true;
+	bool autoActing = false;
 public:
 	MapScreen(Sprite * cur){
 		map.load("assets/bigmap.tmx");
@@ -73,16 +73,17 @@ public:
 		int camDir = 0;
 		view.reset(sf::FloatRect(0,0,1280,623));
 		view.setCenter(h.getHeroPos());
-		Brain brain(false);
+		Brain brain(&h, &App);
 		PathFinding PF(map,allobj);
 		long interval;
-		Actions actions("walk");
+		Actions actions(h, &PF, &path, brain);
 		while (Running)
 		{
+			//получить время
 			float time = clock.getElapsedTime().asMilliseconds();
 			clock.restart();
 			time = time / 800;
-
+			//обработка закрытия окна
 			while (App.pollEvent(Event))
 			{
 				if (Event.type == sf::Event::Closed)
@@ -90,17 +91,22 @@ public:
 					return (-1);
 				}
 			}
-
+			//для рун
 			if (Event.type == Event::MouseButtonPressed)
+			{
 				if (Event.key.code == Mouse::Left) {
 					isPressed = true;
 				}
+			}
 			if (Event.type == Event::MouseButtonReleased)
+			{
 				if (Event.key.code == Mouse::Left) {
 					if (isPressed) cout << l.get() << endl;
 					isPressed = false;
 					l.clear();
 				}
+			}
+			//далее - скроллинг
 			sf::Vector2i pos = Mouse::getPosition(App);
 			
 			if (!(pos.x < 20) && !(pos.x > 1260) && !(pos.y < 20) && !(pos.y > 600)) { 
@@ -132,33 +138,42 @@ public:
 			if ((pos.x < 20) && (pos.y < 20))camDir = 6;
 			if ((pos.x > 1260) && (pos.y < 20))camDir = 7;
 			if ((pos.x > 1260) && (pos.y > 600))camDir = 8;
-
+			//руны - добавление координат
 			if (isPressed) l.add(pos.x, pos.y);
+			//прорисовка
 			App.clear();
 			App.draw(layerZero);
 			App.draw(layerOne);
-		
+			if (!autoActing)
+			{
+				//подумать
+				brain.RandThink();
+			}
 			//движение героя
-			
 			if (moving && !isPressed) {
 				moving = h.moveHeroTo(path[path.size()-1], time);
 				view.setCenter(h.getHeroPos());
-				autoActing = true;
+				//autoActing = true;
 			}
 			if (path.size() > 1 && !moving)
 			{
 				path.pop_back();
 				moving = true;
-				autoActing = false;
+				//autoActing = false;
 			}
+			//действия
 			if (autoActing) 
 			{
-				actions.walk(PF, &path, h);
+				actions.DoAction();
 			}
 
+			//проверка столкновений
 			bool Col = checkCollision(allobj, h.getRect());
-			
+
+			//рисовать героя
 			App.draw(h);
+
+			//прорисовка курсора и скроллинг
 			if (!camIsMoving) {
 				cursor->setPosition(getMouseGlobalPos(App));
 				App.draw(*cursor);
@@ -194,22 +209,30 @@ public:
 			App.draw(ArrowCursor);
 			}
 			App.setView(view);
-			brain.update(h, App);
+
+			
 			App.display();
 			if (Event.type == sf::Event::MouseButtonPressed) {
-				
-
 				if ((Event.mouseButton.button == sf::Mouse::Left)) {
 					if(h.getRect().contains(getMouseGlobalPos(App))){//выход в interfaceScreen
 						Running = false;
 						moving = false;
+						autoActing = false;
 						return (1);
+					}
+					else if (brain.getSDR().contains(getMouseGlobalPos(App)) && brain.dialIsShowing()){
+						if (!autoActing)
+						{
+							actions.setAct(brain.getCurrentAct());
+						}
+						autoActing = true;
 					}
 					else {
 						destination = getMouseGlobalPos(App);
 						//найти путь
 						path = PF.findPath(h.getHeroPos().x, h.getHeroPos().y, destination.x, destination.y);
 						moving = true;
+						autoActing = false;
 					}
 				}
 				if ((Event.mouseButton.button == sf::Mouse::Right)) {

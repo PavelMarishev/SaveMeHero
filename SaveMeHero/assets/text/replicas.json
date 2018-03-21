@@ -1,48 +1,19 @@
 {
-"context1" : [
+"multiply1" : [
 		{
-			"en":"I am hungry",
-			"ru":"хочу есть"
-		},
-		{
-			"en":"I'm just a man",
-			"ru":"я просто человек"
+			"en":"it's so boring, may be go walk?",
+			"ru":"как то скучно, может погулять?",
+			"context":"walk"
 		},
 		{
 			"en":"I want to sleep",
-			"ru":"спать хочу"
-		},
-		{
-			"en":"I feel that someone is following me",
-			"ru":"кажется, за мной следят"
+			"ru":"спать хочу",
+			"context":"sleep"
 		},
 		{
 			"en":"life is shit",
-			"ru":"жизнь is shit"
-		},
-		{
-			"en":"armor looks like pajamas",
-			"ru":"доспех выглядит как пижама"
-		},
-		{
-			"en":"I will become a hero!",
-			"ru":"я стану героем!"
-		},
-		{
-			"en":"such beautiful trees",
-			"ru":"какие красивые деревья"
-		},
-		{
-			"en":"c ++ is the best",
-			"ru":"с++ топ"
-		},
-		{
-			"en":"where to get money?",
-			"ru":"где взять денег?"
-		},
-		{
-			"en":"Who am I?",
-			"ru":"кто я?"
+			"ru":"жизнь is shit",
+			"context":"none"
 		}
 	]
 }

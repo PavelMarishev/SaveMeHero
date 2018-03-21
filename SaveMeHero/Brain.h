@@ -8,15 +8,20 @@ class Brain
 {
 	long interval;
 	bool toShowDial;
-	Dialog *dial;
+	Dialog* dial;
+	Hero* hero;
+	RenderWindow *App;
 	Clock clock;
 public:
-	Brain(bool TSD = false) 
+	Brain() {}
+	Brain(Hero* h, RenderWindow* A, bool TSD = false)
 	{
 		dial = new Dialog(25);
+		hero = h;
+		App = A;
 		toShowDial = TSD;
 	}
-	void update(Hero h, RenderWindow &App)
+	void RandThink()
 	{
 		interval = clock.getElapsedTime().asSeconds();
 		if (interval >= 9)
@@ -33,12 +38,33 @@ public:
 		}
 		if (toShowDial)
 		{
-			dial->showSmallWindow("...", h.getHeroPos(), App, 1);
+			dial->showSmallWindow("...", hero->getHeroPos(), *App, 1);
 		}
 	}
+	void SleepZZZ() 
+	{
+		interval = clock.getElapsedTime().asSeconds();
+		switch (interval%4) 
+		{
+		case 0: dial->showSmallWindow("z", hero->getHeroPos(), *App, 0); break;
+		case 1: dial->showSmallWindow("zz", hero->getHeroPos(), *App, 0); break;
+		case 2: dial->showSmallWindow("zzZ", hero->getHeroPos(), *App, 0); break;
+		case 3: dial->showSmallWindow("", hero->getHeroPos(), *App, 0); break;
+		}
+	}
+	sf::FloatRect getSDR()
+	{
+		return dial->getSmallDialRect();
+	}
+	bool dialIsShowing()
+	{
+		return toShowDial;
+	}
+	string getCurrentAct() 
+	{
+		return dial->getCurrentContext();
+	}
 };
-
-
 
 
 
