@@ -27,18 +27,18 @@ class CharInterface :public Drawable {
 		sf::Text gemText;
 		sf::Text nameText;
 		Map map;
-		Hero h;
+		Hero *hero;
 		Font font;
-		Texture backTexture;
-		Sprite backSprite;
+	//	Texture backTexture;
+	//	Sprite backSprite;
 		MapLayer ml;
-		Objects back;
+	//	Objects back;
 		Objects icons;
 		Objects clickable;
 
 		virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const
 		{
-			target.draw(backSprite);
+		//	target.draw(backSprite);
 			target.draw(ml);
 			target.draw(hpBarText);
 			target.draw(pwrBarText);
@@ -62,17 +62,15 @@ class CharInterface :public Drawable {
 
      public:
 
-		 CharInterface() {
-			
+		 CharInterface(Hero *h) {
+			 hero = h;
 			 
 			 map.load("assets/interface.tmx");
-			 back.setObjects(map, 0);
+
 			 ml.setMap(map, 1);
 			 icons.setObjects(map, 2);
 			 clickable.setObjects(map, 3);
-			 backTexture.loadFromFile("assets/images/back.png");
 
-			 backSprite.setTexture(backTexture);
 			 font.loadFromFile("assets/himalaya.ttf");
 			 hpBarText.setFont(font);
 			 pwrBarText.setFont(font);
@@ -119,26 +117,24 @@ class CharInterface :public Drawable {
 			 pwrBarText.setFillColor(grey);
 			 lvlText.setFillColor(Color::Black);
 			 lvlToText.setFillColor(Color::Black);
-			
 
-			 hpBarText.setString(to_string(h.currhealth) + "/" +to_string (h.maxhealth));
-			 pwrBarText.setString(to_string(h.currpwr) + "/" + to_string(h.maxpwr));
-			 armorText.setString(to_string(h.armor));
-			 cureText.setString(to_string(h.cure));
-			 damageText.setString(to_string(h.damage));
-			 defenceText.setString(to_string(h.defence));
-			 healthText.setString(to_string(h.maxhealth));
-			 dodgeText.setString(to_string(h.dodge));
-			 strText.setString(to_string(h.str));
-			 endText.setString(to_string(h.end));
-			 intelText.setString(to_string(h.intel));
-			 dexText.setString(to_string(h.dex));
-			 lvlText.setString(to_string(h.lvl));
-			 lvlToText.setString(to_string(h.lvl + 1));
-			 moneyText.setString(to_string(h.money));
-			 gemText.setString(to_string(h.crystals));
-			 nameText.setString(h.name);
-
+			 hpBarText.setString(to_string(hero->currhealth) + "/" + to_string(hero->maxhealth));
+			 pwrBarText.setString(to_string(hero->currpwr) + "/" + to_string(hero->maxpwr));
+			 armorText.setString(to_string(hero->armor));
+			 cureText.setString(to_string(hero->cure));
+			 damageText.setString(to_string(hero->damage));
+			 defenceText.setString(to_string(hero->defence));
+			 healthText.setString(to_string(hero->maxhealth));
+			 dodgeText.setString(to_string(hero->dodge));
+			 strText.setString(to_string(hero->str));
+			 endText.setString(to_string(hero->end));
+			 intelText.setString(to_string(hero->intel));
+			 dexText.setString(to_string(hero->dex));
+			 lvlText.setString(to_string(hero->lvl));
+			 lvlToText.setString(to_string(hero->lvl + 1));
+			 moneyText.setString(to_string(hero->money));
+			 gemText.setString(to_string(hero->crystals));
+			 nameText.setString(hero->name);
 
 
 			 hpBarText.move(tmxToSfVector(icons.getObjectByName("hp").getPosition()));
@@ -159,7 +155,7 @@ class CharInterface :public Drawable {
 			 gemText.move(tmxToSfVector(icons.getObjectByName("gems").getPosition()));
 			 nameText.move(tmxToSfVector(icons.getObjectByName("nickname").getPosition()));
 
-			 backSprite.setPosition(tmxToSfVector(back.getObjectByName("background").getPosition()));
+	
 			
 			 
 
@@ -168,6 +164,26 @@ class CharInterface :public Drawable {
 			 sf::Vector2f f2(f1.x, f1.y);
 			 return f2;
 		 }
+		void updateStats() {
+			hpBarText.setString(to_string(hero->currhealth) + "/" + to_string(hero->maxhealth));
+			pwrBarText.setString(to_string(hero->currpwr) + "/" + to_string(hero->maxpwr));
+			armorText.setString(to_string(hero->armor));
+			cureText.setString(to_string(hero->cure));
+			damageText.setString(to_string(hero->damage));
+			defenceText.setString(to_string(hero->defence));
+			healthText.setString(to_string(hero->maxhealth));
+			dodgeText.setString(to_string(hero->dodge));
+			strText.setString(to_string(hero->str));
+			endText.setString(to_string(hero->end));
+			intelText.setString(to_string(hero->intel));
+			dexText.setString(to_string(hero->dex));
+			lvlText.setString(to_string(hero->lvl));
+			lvlToText.setString(to_string(hero->lvl + 1));
+			moneyText.setString(to_string(hero->money));
+			gemText.setString(to_string(hero->crystals));
+			nameText.setString(hero->name);
+
+		}
 		
 
 		string whereClicked(sf::Vector2f point) {

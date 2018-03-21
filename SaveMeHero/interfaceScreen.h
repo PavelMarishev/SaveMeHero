@@ -3,17 +3,29 @@
 #include <iostream>
 #include "cScreen.h"
 #include "charInterface.h"
+#include "charInventory.h"
 using namespace sf;
 
 class InterfaceScreen :public cScreen
 {
 private:
 	Sprite * cursor;
-
+	Texture backTexture;
+	Sprite backSprite;
+	bool stats = true;
+	bool inv = false;
+	Hero *hero;
 public:
-	InterfaceScreen(Sprite * cur) {
+	InterfaceScreen(Sprite * cur,Hero *h) {
 		cursor = cur;
+		hero = h;
+		backTexture.loadFromFile("assets/images/back.png");
+		backSprite.setTexture(backTexture);
+		backSprite.setPosition(0, 0);
 	}
+	
+
+	
 	int InterfaceScreen::Run(sf::RenderWindow &App) {
 		Event Event;
 		bool Running = true;
@@ -22,7 +34,8 @@ public:
 	///TODO make class inteface
 		
 		Clock clock;
-		CharInterface ci;
+		CharInterface ci(hero);
+		CharInvetory charInv(hero);
 		
 		while (Running)
 		{
@@ -38,16 +51,39 @@ public:
 				}
 			}
 		
-			if ((Event.type == sf::Event::MouseButtonPressed)&& (Event.mouseButton.button == sf::Mouse::Left) ) {
-			//	cout << ci.whereClicked(sf::Vector2f(Mouse::getPosition(App))) << endl;
-				if (ci.whereClicked(sf::Vector2f(Mouse::getPosition(App)))=="game") {
-					return(0);
+			if (stats) {
+				if ((Event.type == sf::Event::MouseButtonPressed) && (Event.mouseButton.button == sf::Mouse::Left)) {
+					if (ci.whereClicked(sf::Vector2f(Mouse::getPosition(App))) == "backpack") {
+						stats = false;
+						inv = true;
+					}
+					if (ci.whereClicked(sf::Vector2f(Mouse::getPosition(App))) == "game") {
+						return(0);
+					}
+
+				}
 			}
-				
+			if (inv) {
+				if ((Event.type == sf::Event::MouseButtonPressed) && (Event.mouseButton.button == sf::Mouse::Left)) {
+					if (charInv.whereClicked(sf::Vector2f(Mouse::getPosition(App))) == "closeback") {
+						stats = true;
+						inv = false;
+					}
+				}
 			}
 			App.setView(view);
 			App.clear();
-			App.draw(ci);
+			App.draw(backSprite);
+			
+			if (stats) { 
+				ci.updateStats();
+				App.draw(ci); 
+			}
+			if (inv) {
+				charInv.updateStats();
+				App.draw(charInv);
+			}
+
 			cursor->setPosition(getMouseGlobalPos(App));
 			App.draw(*cursor);
 			App.display();

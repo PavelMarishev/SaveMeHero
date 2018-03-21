@@ -19,12 +19,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="charInventory.cpp" />
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="SceneManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="allScreens.h" />
     <ClInclude Include="charInterface.h" />
+    <ClInclude Include="charInventory.h" />
     <ClInclude Include="cScreen.h" />
     <ClInclude Include="dial.h" />
     <ClInclude Include="hero.h" />

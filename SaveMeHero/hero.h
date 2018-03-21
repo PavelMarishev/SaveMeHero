@@ -38,6 +38,7 @@ class Hero : public Drawable {
 		int defence = 1;
 		int dodge = 1;
 		int exp = 0;
+		int inventorySize = 84;
 		String name = "Dark Lord";
 		//
 		Hero() {

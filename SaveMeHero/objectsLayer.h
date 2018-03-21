@@ -22,7 +22,6 @@ public:
 				tmx::FloatRect ob = objects[i].getAABB();
 				sf::FloatRect rec(ob.left, ob.top, ob.width, ob.height);
 				objRects.push_back(rec);
-				cout << "Object rect is "<<ob.left<<"  "<<ob.top << "  " <<ob.width << "  " <<ob.height<<endl;
 			}
 		}
 	
@@ -47,7 +46,6 @@ public:
 				tmx::FloatRect ob = objects[i].getAABB();
 				sf::FloatRect rec(ob.left, ob.top, ob.width, ob.height);
 				objRects.push_back(rec);
-				//	cout << "Object rect is "<<ob.left<<"  "<<ob.top << "  " <<ob.width << "  " <<ob.height<<endl;
 			}
 		}
 
