@@ -4,8 +4,9 @@
 #include "objectsLayer.h"
 #include "SFMLOrthogonalLayer.hpp"
 #include "hero.h"
-#include "dial.h" 
 #include "Log.h"
+#include "Brain.h" 
+#include "actions.h"
 
 using namespace sf;
 
@@ -15,11 +16,9 @@ private :
 	bool Running = true;
 	tmx::Map map;
 	Hero h;
-	sf::Vector2f moveto;
+	sf::Vector2f destination;
 	MapLayer layerZero;
 	MapLayer layerOne;
-	Dialog *dial = new Dialog(15);
-	bool toShowDial = false;
 	Clock clock, clock2;
 	Objects allobj;
 	int CamSpeed = 600;
@@ -27,9 +26,11 @@ private :
 	bool isPressed = false;
 	bool camIsMoving = false;
 	Sprite * cursor;
-
 	Texture arrowsText;
 	Sprite ArrowCursor;
+	vector<sf::Vector2f> path;//путь
+	int stepsLeft = 0;
+	bool autoActing = false;
 public:
 	MapScreen(Sprite * cur){
 		map.load("assets/bigmap.tmx");
@@ -37,12 +38,10 @@ public:
 		layerOne.setMap(map, 1);
 		allobj.setObjects(map, 2);
 		cursor = cur;
-
 		arrowsText.loadFromFile("assets/images/cursors.png");
 		ArrowCursor.setTexture(arrowsText);
 		ArrowCursor.setTextureRect(sf::IntRect(177,79,10,10));
-		ArrowCursor.setScale(2, 2);
-
+		ArrowCursor.setScale(2,2);
 	}
 	string whereClicked(sf::Vector2f point, Objects clickable) {
 		string clickedon = "nothing";
@@ -58,9 +57,8 @@ public:
 		vector<sf::FloatRect> rects = colobjs.getRects();
 		for (int i = 0; i < rects.size(); i++) {
 			if (charRect.intersects(rects[i])) {
-				cout << "Collision with object: " << colobjs.getObject(i).getName() << endl;
+				cout << "Collision with object: " << colobjs.getObject(i).getName();// << endl;
 				sprite.move(10, 10);
-
 				return true;
 			}
 			
@@ -75,16 +73,17 @@ public:
 		int camDir = 0;
 		view.reset(sf::FloatRect(0,0,1280,623));
 		view.setCenter(h.getHeroPos());
+		Brain brain(&h, &App);
+		PathFinding PF(map,allobj);
+		long interval;
+		Actions actions(h, &PF, &path, brain);
 		while (Running)
 		{
+			//получить время
 			float time = clock.getElapsedTime().asMilliseconds();
-			long interval = clock2.getElapsedTime().asSeconds();
 			clock.restart();
 			time = time / 800;
-
-		
-		
-
+			//обработка закрытия окна
 			while (App.pollEvent(Event))
 			{
 				if (Event.type == sf::Event::Closed)
@@ -92,17 +91,22 @@ public:
 					return (-1);
 				}
 			}
-
+			//для рун
 			if (Event.type == Event::MouseButtonPressed)
+			{
 				if (Event.key.code == Mouse::Left) {
 					isPressed = true;
 				}
+			}
 			if (Event.type == Event::MouseButtonReleased)
+			{
 				if (Event.key.code == Mouse::Left) {
 					if (isPressed) cout << l.get() << endl;
 					isPressed = false;
 					l.clear();
 				}
+			}
+			//далее - скроллинг
 			sf::Vector2i pos = Mouse::getPosition(App);
 			
 			if (!(pos.x < 20) && !(pos.x > 1260) && !(pos.y < 20) && !(pos.y > 600)) { 
@@ -134,37 +138,42 @@ public:
 			if ((pos.x < 20) && (pos.y < 20))camDir = 6;
 			if ((pos.x > 1260) && (pos.y < 20))camDir = 7;
 			if ((pos.x > 1260) && (pos.y > 600))camDir = 8;
-
+			//руны - добавление координат
 			if (isPressed) l.add(pos.x, pos.y);
+			//прорисовка
 			App.clear();
 			App.draw(layerZero);
 			App.draw(layerOne);
-		
-
-
+			if (!autoActing)
+			{
+				//подумать
+				brain.RandThink();
+			}
+			//движение героя
 			if (moving && !isPressed) {
-				moving = h.moveHeroTo(moveto, time);
+				moving = h.moveHeroTo(path[path.size()-1], time);
 				view.setCenter(h.getHeroPos());
+				//autoActing = true;
 			}
-			bool Col = checkCollision(allobj, h.getRect());
-			if (interval >= 9)
+			if (path.size() > 1 && !moving)
 			{
-				if (toShowDial)
-				{
-					clock2.restart();
-					dial->thinkOfAnother();
-				}
-				toShowDial = false;
+				path.pop_back();
+				moving = true;
+				//autoActing = false;
 			}
-			else if (interval >= 5) {
-				toShowDial = true;
-			}
-			if (toShowDial)
+			//действия
+			if (autoActing) 
 			{
-				dial->showSmallWindow("...", h.getHeroPos(), App, 1);
+				actions.DoAction();
 			}
 
+			//проверка столкновений
+			bool Col = checkCollision(allobj, h.getRect());
+
+			//рисовать героя
 			App.draw(h);
+
+			//прорисовка курсора и скроллинг
 			if (!camIsMoving) {
 				cursor->setPosition(getMouseGlobalPos(App));
 				App.draw(*cursor);
@@ -200,20 +209,30 @@ public:
 			App.draw(ArrowCursor);
 			}
 			App.setView(view);
+
+			
 			App.display();
 			if (Event.type == sf::Event::MouseButtonPressed) {
-				
-
 				if ((Event.mouseButton.button == sf::Mouse::Left)) {
-					if(h.getRect().contains(getMouseGlobalPos(App))){
+					if(h.getRect().contains(getMouseGlobalPos(App))){//выход в interfaceScreen
 						Running = false;
 						moving = false;
+						autoActing = false;
 						return (1);
 					}
+					else if (brain.getSDR().contains(getMouseGlobalPos(App)) && brain.dialIsShowing()){
+						if (!autoActing)
+						{
+							actions.setAct(brain.getCurrentAct());
+						}
+						autoActing = true;
+					}
 					else {
-
-						moveto = getMouseGlobalPos(App);
+						destination = getMouseGlobalPos(App);
+						//найти путь
+						path = PF.findPath(h.getHeroPos().x, h.getHeroPos().y, destination.x, destination.y);
 						moving = true;
+						autoActing = false;
 					}
 				}
 				if ((Event.mouseButton.button == sf::Mouse::Right)) {

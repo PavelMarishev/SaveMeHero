@@ -61,10 +61,6 @@ https://github.com/fallahn/xygine/blob/master/xygine/src/components/ComponentTil
 class MapLayer final : public sf::Drawable
 {
 	
-	
-
-
-
 public:
 
 	MapLayer() {}

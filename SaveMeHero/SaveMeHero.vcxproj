@@ -29,12 +29,14 @@
     <ClInclude Include="charInventory.h" />
     <ClInclude Include="cScreen.h" />
     <ClInclude Include="dial.h" />
+    <ClInclude Include="Brain.h" />
     <ClInclude Include="hero.h" />
     <ClInclude Include="interfaceScreen.h" />
     <ClInclude Include="JsonDB.h" />
     <ClInclude Include="Log.h" />
     <ClInclude Include="mapScreen.h" />
     <ClInclude Include="objectsLayer.h" />
+    <ClInclude Include="actions.h" />
     <ClInclude Include="SFMLOrthogonalLayer.hpp" />
     <ClInclude Include="TileManager.h" />
   </ItemGroup>

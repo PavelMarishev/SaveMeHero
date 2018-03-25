@@ -10,7 +10,7 @@ using namespace Json;
 class FileWork 
 {
 public:
-	string* getJSON() 
+	string** getJSON(int* replValsize)
 	{
 		fstream stream("assets/text/replicas.json");
 		
@@ -23,11 +23,17 @@ public:
 			return NULL;
 		}
 		//string encoding = root.get("encoding", "UTF-8").asCString();
-		const Json::Value replVal = root["context1"];
-		string* buf = new string[replVal.size()];
+		const Json::Value replVal = root["multiply1"];
+		string** buf = new string*[2]; 
+		buf[0] = new string[replVal.size()];
+		buf[1] = new string[replVal.size()];
+		*replValsize = replVal.size();
+		cout << replVal.size() << " - replVal.size()" << endl;
 		for (int index = 0; index < replVal.size(); index++)
 		{
-			buf[index] = (replVal[index]["en"].asCString());
+			buf[0][index] = (replVal[index]["en"].asCString());
+			buf[1][index] = (replVal[index]["context"].asCString());
+			cout << (replVal[index]["en"].asCString()) << " - " << (replVal[index]["context"].asCString()) << endl;
 		}
 		return buf;
 		//setIndentLength(root["indent"].get("length", 3).asInt());

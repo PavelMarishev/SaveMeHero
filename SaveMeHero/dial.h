@@ -8,9 +8,13 @@ using namespace std;
 class Dialog {
 	Font font;
 	sf::Text text;
-	string* collection;
+	string** collection;
 	int mode = 0;
+	//int *ideasCount;
+	int ideasCount;
+	sf::FloatRect SmallDialRect;
 	string currentIdea;
+	string currentContext;
 	string cutSpace(string s) {
 		int i = 0;
 		while (i < s.length())
@@ -99,16 +103,21 @@ public:
 		text.setCharacterSize(size);
 		text.setFillColor(color);
 		FileWork FW;
-		collection = FW.getJSON();
+		collection = FW.getJSON(&ideasCount);
 		mode = type;
-		currentIdea = collection[0];
+		currentIdea = collection[0][0];
+		currentContext = collection[1][0];
 	}
 	void thinkOfAnother() 
 	{
 		string temp = currentIdea;
+		int t = 0;
 		do {
-			currentIdea = collection[rand() % (collection->size())];
+			t = rand() % ideasCount;
+			cout << "ideasCount = " << ideasCount << endl;
+			currentIdea = collection[0][t];
 		} while (temp == currentIdea);
+		currentContext = collection[1][t];
 	}
 	//showSmallWindow выводит маленькое диалоговое окно возле героя, параметры: текст, положение героя, окно, высота, ширина абзаца
 	void showSmallWindow(string speach, sf::Vector2f obj, RenderWindow &window, int forMode = 0, int limitH = 4, int limitW = 10, float forTextAlign = 100, float Scale = 100)
@@ -126,9 +135,9 @@ public:
 		
 		Sprite s(dialTx);
 		s.setColor(Color(255,255,255,150));
-		s.setScale(1.0/(700/(limitW*(text.getCharacterSize()-3))), 1.0 / (200 / (text.getCharacterSize()*limitH)));
-		s.setPosition(sf::Vector2f(obj.x + 25, obj.y - (text.getCharacterSize()+3)*limitH));
-
+		s.setScale(1.0/(700/(limitW*(text.getCharacterSize()-3))), 1.0 / ((200+ text.getCharacterSize()*2) / (text.getCharacterSize()*limitH)));
+		s.setPosition(sf::Vector2f(obj.x + 20, obj.y - (text.getCharacterSize() + 3)*limitH));
+		SmallDialRect = s.getGlobalBounds();
 		window.draw(s); 
 		window.draw(text);
 	}
@@ -150,5 +159,17 @@ public:
 	void setMode(int val) 
 	{
 		mode = val;
+	}
+	sf::FloatRect getSmallDialRect()
+	{
+		return SmallDialRect;
+	}
+	string getCurrentIdea() 
+	{
+		return currentIdea;
+	}
+	string getCurrentContext() 
+	{
+		return currentContext;
 	}
 };
