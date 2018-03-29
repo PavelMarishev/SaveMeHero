@@ -76,7 +76,7 @@ public:
 		Brain brain(&h, &App);
 		PathFinding PF(map,allobj);
 		long interval;
-		Actions actions(h, &PF, &path, brain);
+		Actions actions(&h, &PF, &path, brain);
 		while (Running)
 		{
 			//получить время

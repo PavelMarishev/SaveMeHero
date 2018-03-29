@@ -14,9 +14,9 @@ CharInvetory::CharInvetory(Hero * h)
 	defenceText.move(tmxToSfVector(mapObjs.getObjectByName("def").getPosition()));
 	healthText.move(tmxToSfVector(mapObjs.getObjectByName("health").getPosition()));
 	dodgeText.move(tmxToSfVector(mapObjs.getObjectByName("dodge").getPosition()));
-	for (int i = 0; i < hero->inventorySize; i++) {
+	for (int i = 0; i < hero->get_inventory_size(); i++) {
 		cellsSprites.push_back(cellSprite);
-		cellsSprites.at(i).setPosition(805+38*column, 280+38*row);
+		cellsSprites.at(i).setPosition(805 + 38 * column, 280 + 38 * row);
 		column++;
 		if (column == 12) {
 			row++;
@@ -33,7 +33,7 @@ CharInvetory::CharInvetory(Hero * h)
 	dodgeText.setFont(font);
 
 
-	
+
 }
 void CharInvetory::draw(sf::RenderTarget & target, sf::RenderStates states) const
 {
@@ -51,7 +51,7 @@ void CharInvetory::draw(sf::RenderTarget & target, sf::RenderStates states) cons
 
 string CharInvetory::whereClicked(sf::Vector2f point) {
 	string clickedon = "nothing";
-	vector<sf::FloatRect> rects =mapObjs.getRects();
+	vector<sf::FloatRect> rects = mapObjs.getRects();
 	for (int i = 0; i < rects.size(); i++) {
 		if (rects[i].contains(point)) {
 			clickedon = mapObjs.getObject(i).getName();
@@ -64,16 +64,16 @@ string CharInvetory::whereClicked(sf::Vector2f point) {
 
 void CharInvetory::updateStats()
 {
-	armorText.setString(to_string(hero->armor));
-	cureText.setString(to_string(hero->cure));
-	damageText.setString(to_string(hero->damage));
-	defenceText.setString(to_string(hero->defence));
-	healthText.setString(to_string(hero->maxhealth));
-	dodgeText.setString(to_string(hero->dodge));
+	armorText.setString(to_string(hero->get_armor()));
+	cureText.setString(to_string(hero->get_cure()));
+	damageText.setString(to_string(hero->get_damage()));
+	defenceText.setString(to_string(hero->get_defence()));
+	healthText.setString(to_string(hero->get_maxhealth()));
+	dodgeText.setString(to_string(hero->get_dodge()));
 
 }
 sf::Vector2f CharInvetory::tmxToSfVector(tmx::Vector2f f1)
 {
-	
+
 	return sf::Vector2f(f1.x, f1.y);
 }

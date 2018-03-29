@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="charInventory.cpp" />
+    <ClCompile Include="Item.cpp" />
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="SceneManager.cpp" />
   </ItemGroup>
@@ -32,6 +33,7 @@
     <ClInclude Include="Brain.h" />
     <ClInclude Include="hero.h" />
     <ClInclude Include="interfaceScreen.h" />
+    <ClInclude Include="Item.h" />
     <ClInclude Include="JsonDB.h" />
     <ClInclude Include="Log.h" />
     <ClInclude Include="mapScreen.h" />

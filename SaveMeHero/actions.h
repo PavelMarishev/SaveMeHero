@@ -9,7 +9,7 @@ class Actions
 {
 	int currentAct;
 	long interval;
-	Hero heroInAct;
+	Hero *heroInAct;
 	Brain brain;
 	vector<sf::Vector2f>* pathForActs;
 	PathFinding* pfind;
@@ -27,7 +27,7 @@ class Actions
 	};
 	*/
 public:
-	Actions(Hero h, PathFinding* pf, vector<sf::Vector2f>* path, Brain br, int AC = 3)
+	Actions(Hero *h, PathFinding* pf, vector<sf::Vector2f>* path, Brain br, int AC = 3)
 	{
 		actCount = AC;
 		currentAct = 0;
@@ -75,7 +75,7 @@ public:
 		interval = clock.getElapsedTime().asSeconds();
 		if (interval > 8)
 		{
-			*pathForActs = pfind->findPath(heroInAct.getHeroPos().x, heroInAct.getHeroPos().y, heroInAct.getHeroPos().x + rand()% wayLen - wayLen/2, heroInAct.getHeroPos().y + rand() % wayLen - wayLen/2);
+			*pathForActs = pfind->findPath(heroInAct->getHeroPos().x, heroInAct->getHeroPos().y, heroInAct->getHeroPos().x + rand()% wayLen - wayLen/2, heroInAct->getHeroPos().y + rand() % wayLen - wayLen/2);
 			clock.restart();
 		}
 	}
