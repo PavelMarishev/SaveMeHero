@@ -1,64 +1,45 @@
 ﻿  SceneManager.cpp
-e:\vsprojects\shm2\savemehero\objectslayer.h(21): warning C4018: <: несоответствие типов со знаком и без знака
-e:\vsprojects\shm2\savemehero\objectslayer.h(45): warning C4018: <: несоответствие типов со знаком и без знака
-e:\vsprojects\shm2\savemehero\sfmlorthogonallayer.hpp(149): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-e:\vsprojects\shm2\savemehero\sfmlorthogonallayer.hpp(186): warning C4244: аргумент: преобразование "::size_t" в "float", возможна потеря данных
-e:\vsprojects\shm2\savemehero\sfmlorthogonallayer.hpp(189): warning C4244: аргумент: преобразование "uint32_t" в "float", возможна потеря данных
-e:\vsprojects\shm2\savemehero\sfmlorthogonallayer.hpp(196): warning C4244: аргумент: преобразование "unsigned int" в "float", возможна потеря данных
-e:\vsprojects\shm2\savemehero\sfmlorthogonallayer.hpp(197): warning C4244: аргумент: преобразование "unsigned int" в "float", возможна потеря данных
-e:\vsprojects\shm2\savemehero\sfmlorthogonallayer.hpp(198): warning C4244: аргумент: преобразование "unsigned int" в "float", возможна потеря данных
-e:\vsprojects\shm2\savemehero\sfmlorthogonallayer.hpp(349): warning C4018: <: несоответствие типов со знаком и без знака
-e:\vsprojects\shm2\savemehero\hero.h(259): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
-e:\vsprojects\shm2\savemehero\hero.h(260): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
-e:\vsprojects\shm2\savemehero\dial.h(5): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
-e:\vsprojects\shm2\savemehero\jsondb.h(32): warning C4018: <: несоответствие типов со знаком и без знака
-e:\vsprojects\shm2\savemehero\dial.h(20): warning C4018: <: несоответствие типов со знаком и без знака
-e:\vsprojects\shm2\savemehero\dial.h(25): warning C4018: <: несоответствие типов со знаком и без знака
-e:\vsprojects\shm2\savemehero\dial.h(38): warning C4018: >: несоответствие типов со знаком и без знака
-e:\vsprojects\shm2\savemehero\dial.h(42): warning C4018: <: несоответствие типов со знаком и без знака
-e:\vsprojects\shm2\savemehero\dial.h(44): warning C4018: <: несоответствие типов со знаком и без знака
-e:\vsprojects\shm2\savemehero\dial.h(64): warning C4018: <: несоответствие типов со знаком и без знака
-e:\vsprojects\shm2\savemehero\dial.h(138): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-e:\vsprojects\shm2\savemehero\dial.h(146): warning C4244: аргумент: преобразование "unsigned int" в "float", возможна потеря данных
-e:\vsprojects\shm2\savemehero\dial.h(149): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-e:\vsprojects\shm2\savemehero\dial.h(150): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-e:\vsprojects\shm2\savemehero\brain.h(26): warning C4244: =: преобразование "float" в "long", возможна потеря данных
-e:\vsprojects\shm2\savemehero\brain.h(46): warning C4244: =: преобразование "float" в "long", возможна потеря данных
-e:\vsprojects\shm2\savemehero\brain.h(90): warning C4244: =: преобразование "float" в "int", возможна потеря данных
-e:\vsprojects\shm2\savemehero\brain.h(91): warning C4244: =: преобразование "float" в "int", возможна потеря данных
-e:\vsprojects\shm2\savemehero\brain.h(106): warning C4018: <: несоответствие типов со знаком и без знака
-e:\vsprojects\shm2\savemehero\brain.h(108): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-e:\vsprojects\shm2\savemehero\brain.h(126): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-e:\vsprojects\shm2\savemehero\brain.h(166): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-e:\vsprojects\shm2\savemehero\brain.h(170): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-e:\vsprojects\shm2\savemehero\actions.h(75): warning C4244: =: преобразование "float" в "long", возможна потеря данных
-e:\vsprojects\shm2\savemehero\actions.h(78): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
-e:\vsprojects\shm2\savemehero\mapscreen.h(49): warning C4018: <: несоответствие типов со знаком и без знака
-e:\vsprojects\shm2\savemehero\mapscreen.h(58): warning C4018: <: несоответствие типов со знаком и без знака
-e:\vsprojects\shm2\savemehero\mapscreen.h(83): warning C4244: инициализация: преобразование "sf::Int32" в "float", возможна потеря данных
-e:\vsprojects\shm2\savemehero\mapscreen.h(233): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
-e:\vsprojects\shm2\savemehero\mapscreen.h(78): warning C4101: interval: неиспользованная локальная переменная
-e:\vsprojects\shm2\savemehero\charinterface.h(191): warning C4018: <: несоответствие типов со знаком и без знака
-e:\vsprojects\shm2\savemehero\interfacescreen.h(42): warning C4244: инициализация: преобразование "sf::Int32" в "float", возможна потеря данных
-  Item.cpp
-  charInventory.cpp
-e:\vsprojects\shm2\savemehero\objectslayer.h(21): warning C4018: <: несоответствие типов со знаком и без знака
-e:\vsprojects\shm2\savemehero\objectslayer.h(45): warning C4018: <: несоответствие типов со знаком и без знака
-e:\vsprojects\shm2\savemehero\sfmlorthogonallayer.hpp(149): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-e:\vsprojects\shm2\savemehero\sfmlorthogonallayer.hpp(186): warning C4244: аргумент: преобразование "::size_t" в "float", возможна потеря данных
-e:\vsprojects\shm2\savemehero\sfmlorthogonallayer.hpp(189): warning C4244: аргумент: преобразование "uint32_t" в "float", возможна потеря данных
-e:\vsprojects\shm2\savemehero\sfmlorthogonallayer.hpp(196): warning C4244: аргумент: преобразование "unsigned int" в "float", возможна потеря данных
-e:\vsprojects\shm2\savemehero\sfmlorthogonallayer.hpp(197): warning C4244: аргумент: преобразование "unsigned int" в "float", возможна потеря данных
-e:\vsprojects\shm2\savemehero\sfmlorthogonallayer.hpp(198): warning C4244: аргумент: преобразование "unsigned int" в "float", возможна потеря данных
-e:\vsprojects\shm2\savemehero\sfmlorthogonallayer.hpp(349): warning C4018: <: несоответствие типов со знаком и без знака
-e:\vsprojects\shm2\savemehero\hero.h(259): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
-e:\vsprojects\shm2\savemehero\hero.h(260): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
-e:\vsprojects\shm2\savemehero\charinventory.cpp(19): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-e:\vsprojects\shm2\savemehero\charinventory.cpp(41): warning C4018: <: несоответствие типов со знаком и без знака
-e:\vsprojects\shm2\savemehero\charinventory.cpp(55): warning C4018: <: несоответствие типов со знаком и без знака
-  Создание кода...
-e:\vsprojects\shm2\savemehero\objectslayer.h(63): warning C4715: Objects::getObjectByName: значение возвращается не при всех путях выполнения
-e:\vsprojects\shm2\savemehero\mapscreen.h(66): warning C4715: MapScreen::checkCollision: значение возвращается не при всех путях выполнения
-e:\vsprojects\shm2\savemehero\objectslayer.h(63): warning C4715: Objects::getObjectByName: значение возвращается не при всех путях выполнения
-     Создается библиотека E:\VSprojects\SHM2\Debug\SaveMeHero.lib и объект E:\VSprojects\SHM2\Debug\SaveMeHero.exp
-  SaveMeHero.vcxproj -> E:\VSprojects\SHM2\Debug\SaveMeHero.exe
+c:\users\ф\documents\github\savemehero\savemehero\objectslayer.h(21): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\ф\documents\github\savemehero\savemehero\objectslayer.h(45): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\ф\documents\github\savemehero\savemehero\sfmlorthogonallayer.hpp(149): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\ф\documents\github\savemehero\savemehero\sfmlorthogonallayer.hpp(186): warning C4244: аргумент: преобразование "size_t" в "float", возможна потеря данных
+c:\users\ф\documents\github\savemehero\savemehero\sfmlorthogonallayer.hpp(189): warning C4244: аргумент: преобразование "uint32_t" в "float", возможна потеря данных
+c:\users\ф\documents\github\savemehero\savemehero\sfmlorthogonallayer.hpp(196): warning C4244: аргумент: преобразование "unsigned int" в "float", возможна потеря данных
+c:\users\ф\documents\github\savemehero\savemehero\sfmlorthogonallayer.hpp(197): warning C4244: аргумент: преобразование "unsigned int" в "float", возможна потеря данных
+c:\users\ф\documents\github\savemehero\savemehero\sfmlorthogonallayer.hpp(198): warning C4244: аргумент: преобразование "unsigned int" в "float", возможна потеря данных
+c:\users\ф\documents\github\savemehero\savemehero\sfmlorthogonallayer.hpp(349): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\ф\documents\github\savemehero\savemehero\hero.h(259): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+c:\users\ф\documents\github\savemehero\savemehero\hero.h(260): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+c:\users\ф\documents\github\savemehero\savemehero\dial.h(5): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+c:\users\ф\documents\github\savemehero\savemehero\jsondb.h(32): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\ф\documents\github\savemehero\savemehero\dial.h(20): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\ф\documents\github\savemehero\savemehero\dial.h(25): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\ф\documents\github\savemehero\savemehero\dial.h(38): warning C4018: >: несоответствие типов со знаком и без знака
+c:\users\ф\documents\github\savemehero\savemehero\dial.h(42): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\ф\documents\github\savemehero\savemehero\dial.h(44): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\ф\documents\github\savemehero\savemehero\dial.h(64): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\ф\documents\github\savemehero\savemehero\dial.h(138): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+c:\users\ф\documents\github\savemehero\savemehero\dial.h(146): warning C4244: аргумент: преобразование "unsigned int" в "float", возможна потеря данных
+c:\users\ф\documents\github\savemehero\savemehero\dial.h(149): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\ф\documents\github\savemehero\savemehero\dial.h(150): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\ф\documents\github\savemehero\savemehero\brain.h(26): warning C4244: =: преобразование "float" в "long", возможна потеря данных
+c:\users\ф\documents\github\savemehero\savemehero\brain.h(46): warning C4244: =: преобразование "float" в "long", возможна потеря данных
+c:\users\ф\documents\github\savemehero\savemehero\brain.h(90): warning C4244: =: преобразование "float" в "int", возможна потеря данных
+c:\users\ф\documents\github\savemehero\savemehero\brain.h(91): warning C4244: =: преобразование "float" в "int", возможна потеря данных
+c:\users\ф\documents\github\savemehero\savemehero\brain.h(106): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\ф\documents\github\savemehero\savemehero\brain.h(108): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\ф\documents\github\savemehero\savemehero\brain.h(126): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\ф\documents\github\savemehero\savemehero\brain.h(166): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\ф\documents\github\savemehero\savemehero\brain.h(170): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\ф\documents\github\savemehero\savemehero\actions.h(75): warning C4244: =: преобразование "float" в "long", возможна потеря данных
+c:\users\ф\documents\github\savemehero\savemehero\actions.h(78): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
+c:\users\ф\documents\github\savemehero\savemehero\mapscreen.h(53): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\ф\documents\github\savemehero\savemehero\mapscreen.h(62): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\ф\documents\github\savemehero\savemehero\mapscreen.h(87): warning C4244: инициализация: преобразование "sf::Int32" в "float", возможна потеря данных
+c:\users\ф\documents\github\savemehero\savemehero\mapscreen.h(244): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
+c:\users\ф\documents\github\savemehero\savemehero\mapscreen.h(82): warning C4101: interval: неиспользованная локальная переменная
+c:\users\ф\documents\github\savemehero\savemehero\charinterface.h(191): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\ф\documents\github\savemehero\savemehero\interfacescreen.h(42): warning C4244: инициализация: преобразование "sf::Int32" в "float", возможна потеря данных
+c:\users\ф\documents\github\savemehero\savemehero\mapscreen.h(70): warning C4715: MapScreen::checkCollision: значение возвращается не при всех путях выполнения
+c:\users\ф\documents\github\savemehero\savemehero\objectslayer.h(63): warning C4715: Objects::getObjectByName: значение возвращается не при всех путях выполнения
+  SaveMeHero.vcxproj -> C:\Users\ф\Documents\GitHub\SaveMeHero\Debug\SaveMeHero.exe

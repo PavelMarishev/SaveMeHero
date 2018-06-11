@@ -1,12 +1,12 @@
 #pragma once
 #include <string>
+#include <vector>
 
 using namespace std;
 
 class Log
 {
-	int arr[100];
-	int index;
+	vector<int> arr;	
 public:
 	Log();
 	void add(int x, int y);

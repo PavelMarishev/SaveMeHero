@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #pragma once
 #include "cScreen.h"
 #include "objectsLayer.h"
@@ -22,8 +23,11 @@ private :
 	Clock clock, clock2;
 	Objects allobj;
 	int CamSpeed = 600;
+
 	Log l;
 	bool isPressed = false;
+	bool lineDrawn = false;
+
 	bool camIsMoving = false;
 	Sprite * cursor;
 	Texture arrowsText;
@@ -101,7 +105,14 @@ public:
 			if (Event.type == Event::MouseButtonReleased)
 			{
 				if (Event.key.code == Mouse::Left) {
-					if (isPressed) cout << l.get() << endl;
+					if (isPressed) {
+						string res = l.get();
+						cout << res << endl;
+						if (res.length() > 3)
+							lineDrawn = true;
+						else
+							lineDrawn = false;
+					}
 					isPressed = false;
 					l.clear();
 				}
@@ -212,15 +223,15 @@ public:
 
 			
 			App.display();
-			if (Event.type == sf::Event::MouseButtonPressed) {
-				if ((Event.mouseButton.button == sf::Mouse::Left)) {
-					if(h.getRect().contains(getMouseGlobalPos(App))){//выход в interfaceScreen
+			if (Event.type == sf::Event::MouseButtonReleased) {
+				if (Event.mouseButton.button == sf::Mouse::Left && !lineDrawn) {
+					if (h.getRect().contains(getMouseGlobalPos(App))) {//выход в interfaceScreen
 						Running = false;
 						moving = false;
 						autoActing = false;
 						return (1);
 					}
-					else if (brain.getSDR().contains(getMouseGlobalPos(App)) && brain.dialIsShowing()){
+					else if (brain.getSDR().contains(getMouseGlobalPos(App)) && brain.dialIsShowing()) {
 						if (!autoActing)
 						{
 							actions.setAct(brain.getCurrentAct());
@@ -238,7 +249,7 @@ public:
 				if ((Event.mouseButton.button == sf::Mouse::Right)) {
 					sf::Vector2f mosPosi = getMouseGlobalPos(App);
 					cout << "GLOBAL: x=" << mosPosi.x << "y=" << mosPosi.y << endl;
-					cout << "LOCAL: x=" << sf::Mouse::getPosition(App).x << "y="<< sf::Mouse::getPosition(App).y<<endl;
+					cout << "LOCAL: x=" << sf::Mouse::getPosition(App).x << "y=" << sf::Mouse::getPosition(App).y << endl;
 				}
 			}
 		}
